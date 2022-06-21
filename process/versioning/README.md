@@ -1,6 +1,7 @@
 ---
 tags: process
 ---
+
 # Versioning and code integration
 
 This area captures the general approach we take with versioning products developed by the ENF. This is not a strict rule that is applied to every single product or code repository within the GitHub organization. It is meant more as a general guideline but the rules may be enforced more strictly for specific products (or suite of products) within the organization.

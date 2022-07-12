@@ -18,8 +18,27 @@ In addition, tools are included to help maintain documentation in source reposit
 | Smart Contracts | [mandel-contracts](https://github.com/eosnetworkfoundation/mandel-contracts) |
 | Developer Tools | [mandel.cdt](https://github.com/eosnetworkfoundation/mandel.cdt) |
 
-## Installation ##
-[First Install Software](docs/FirstInstallSoftware.md)
+## Initialize Content Repository ##
+See [First Install Software](docs/FirstInstallSoftware.md) for all the dependancies.
 
-## Generating Documenation ##
-[Generating the Documentation](docs/GeneratingDocuments.md) from eos network repositories
+The initialization script is not destructive, copies in files and creates directories when they do not exist. If they do exist does nothing.
+```console
+$ cd scripts
+$ ./initialize_repository.sh -d /path/to/webroot
+```
+
+After running you will find a empty index.html file in the `/path/to/webroot/eosdocs`
+```console
+$ curl http://host.com/eosdocs/
+```
+
+## Generating and Installing Content ##
+clones various git repos, extracts documentation and then copies to webroot folder
+```console
+$ cd scripts
+$ ./run_me_to_gen_docs.sh -d /path/to/webroot
+```
+
+After running there will be many files under `/path/to/webroot/eosdocs`
+
+See [Generating Documents](docs/GeneratingDocuments.md) for additional details

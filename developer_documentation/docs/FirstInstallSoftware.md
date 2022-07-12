@@ -33,27 +33,3 @@ Instructions on downloading and installing node and npm
 Used to generate documentation from C++ source code.
 
 [Installing Doxygen](https://www.doxygen.nl/manual/install.html)
-
-## Initialize Content Repository ##
-
-Not destructive, copies in files and creates directories when they do not exist. If they do exist does nothing.
-```console
-$ cd scripts
-$ ./initialize_repository.sh -d /path/to/webroot
-```
-
-After running you will find a empty index.html file in the `/path/to/webroot/eosdocs`
-```console
-$ curl http://host.com/eosdocs/
-```
-
-## Generating and Installing Content ##
-clones various git repos, extracts documentation and then copies to webroot folder
-```console
-$ cd scripts
-$ ./run_me_to_gen_docs.sh -d /path/to/webroot
-```
-
-After running there will be many files under `/path/to/webroot/eosdocs`
-
-See [Generating Documents](GeneratingDocuments.md) for additional details

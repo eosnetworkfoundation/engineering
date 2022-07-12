@@ -63,6 +63,8 @@ echo "copying in static files, will not overwrite existing files"
 
 # copy over the main index file
 [ ! -f "${ROOT_DIR}/eosdocs/index.html" ] && cp "${SCRIPT_DIR}/../web/index.html" "${ROOT_DIR}/eosdocs/index.html"
+# copy over the logo
+[ ! -f "${ROOT_DIR}/eosdocs/eosn_logo.png" ] && cp "${SCRIPT_DIR}/../web/eosn_logo.png" "${ROOT_DIR}/eosdocs/eosn_logo.png"
 # copy over the html with openapi documentation from mandel
 for i in ${SCRIPT_DIR}/../web/mandel-plugins/*.html
 do

@@ -45,9 +45,22 @@ fi
 # compute script dir for copying files from here to web directory
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# HTML Header File
+HEADER_HTML_FILE="${SCRIPT_DIR}/../web/header.html"
+
 ##################################
 # build out OpenAPI Docs from yaml
 source ${SCRIPT_DIR}/generate_openapi.sh
 GenOpenAPI $ROOT_DIR $SCRIPT_DIR
+# build out javadocs
 source ${SCRIPT_DIR}/generate_javadoc.sh
 GenJavaDoc $ROOT_DIR $SCRIPT_DIR
+# move over markdown for swift
+source ${SCRIPT_DIR}/generate_swiftdoc.sh
+GenSwiftDoc $ROOT_DIR $SCRIPT_DIR
+# use typedoc to generate JS documenation in markdown
+source ${SCRIPT_DIR}/generate_jsdoc.sh
+GenJSDoc $ROOT_DIR $SCRIPT_DIR
+# build out smart contract documenation using doxygen
+source ${SCRIPT_DIR}/generate_smartcontractdoc.sh
+GenSmartContractDoc $ROOT_DIR $SCRIPT_DIR

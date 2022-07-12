@@ -10,14 +10,19 @@
 
 GenJavaDoc() {
   if [[ $# -lt 2 ]] ; then
-      echo 'NOT ENOUGH ARGS: specify web root,  specify script dir '
+      echo 'NOT ENOUGH ARGS: specify web root,  specify script dir'
       exit 1
   fi
 
   WEB_ROOT=$1
+  # location to write docs
   DEST_DIR="${WEB_ROOT}/eosdocs/javadocs"
+  # place to clone repo
   WORKING_DIR="${2}/../working"
+  # repo
   GIT_URL="https://github.com/eosnetworkfoundation/mandel-java.git"
+  # location of java code inside repo
+  SOURCE_PATH="./eosiojava/src/main/java"
 
   # pull from github
   # create working dir if it does not exist
@@ -38,7 +43,8 @@ GenJavaDoc() {
   # translate ending newlines to spaces
   PACKAGES=${PACKAGES//[$'\t\r\n']/ }
 
-  CMD="javadoc -sourcepath . -d ${DEST_DIR} ${PACKAGES}"
+  CMD="javadoc -sourcepath ${SOURCE_PATH} -d ${DEST_DIR} ${PACKAGES}"
+
   echo "running ${CMD}"
   ${CMD}
 }

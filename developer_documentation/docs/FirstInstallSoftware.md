@@ -56,4 +56,4 @@ $ ./run_me_to_gen_docs.sh -d /path/to/webroot
 
 After running there will be many files under `/path/to/webroot/eosdocs`
 
-See [GeneratingDocuments.md] for additional details
+See [Generating Documents](GeneratingDocuments.md) for additional details

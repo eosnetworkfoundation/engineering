@@ -13,7 +13,7 @@ GenJSDoc() {
 
   WEB_ROOT=$1
   # location to write docs
-  DEST_DIR="${WEB_ROOT}/eosdocs/jsdocs"
+  DEST_DIR="${WEB_ROOT}/devdocs/eosdocs/jsdocs"
   # place to clone repo
   WORKING_DIR="${2}/../working"
   # repo, use personal until pull request accepted
@@ -35,6 +35,13 @@ GenJSDoc() {
   # generate the docs there is a typedoc.json config
   node_modules/typedoc/bin/typedoc --plugin typedoc-plugin-markdown
 
+  # pull down contributing and license files
+  curl --output-dir "typedoc-out" -O ${GIT_URL}/historical-for-abieos-v2.1.x/CONTRIBUTING.md
+  curl --output-dir "typedoc-out" -O ${GIT_URL}/historical-for-abieos-v2.1.x/LICENSE
+  mv typedoc-out/LICENSE typedoc-out/LICENSE.md
+  # quick fix to path for License
+  sed 's/\.\/LICENSE/\/eosdocs\/jsdocs\/LICENSE.md/' typedoc-out/README.md > tmp_README.md
+  mv tmp_README.md typedoc-out/README.md
 
   # copy files in, view framework will convert from Markdown to HTML
   cp -R typedoc-out/* $DEST_DIR

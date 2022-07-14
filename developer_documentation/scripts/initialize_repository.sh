@@ -47,27 +47,35 @@ fi
 # compute script dir for copying files from here to web directory
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+echo "installing initial docusarus"
+npx create-docusaurus@latest "${ROOT_DIR}/devdocs" classic --typescript
+
 echo "creating directories and adding templates under ${ROOT_DIR}"
 
 # make directories
-[ ! -d "${ROOT_DIR}/eosdocs" ] && mkdir "${ROOT_DIR}/eosdocs"
-[ ! -d "${ROOT_DIR}/eosdocs/openapi" ] && mkdir "${ROOT_DIR}/eosdocs/openapi"
-[ ! -d "${ROOT_DIR}/eosdocs/openapi/mandel-plugins" ] && mkdir "${ROOT_DIR}/eosdocs/openapi/mandel-plugins"
-[ ! -d "${ROOT_DIR}/eosdocs/mandel-plugins" ] && mkdir "${ROOT_DIR}/eosdocs/mandel-plugins"
-[ ! -d "${ROOT_DIR}/eosdocs/mandel-contracts" ] && mkdir "${ROOT_DIR}/eosdocs/mandel-contracts"
-[ ! -d "${ROOT_DIR}/eosdocs/javadocs" ] && mkdir "${ROOT_DIR}/eosdocs/javadocs"
-[ ! -d "${ROOT_DIR}/eosdocs/jsdocs" ] && mkdir "${ROOT_DIR}/eosdocs/jsdocs"
-[ ! -d "${ROOT_DIR}/eosdocs/swiftdocs" ] && mkdir "${ROOT_DIR}/eosdocs/swiftdocs"
+[ ! -d "${ROOT_DIR}/devdocs" ] && mkdir "${ROOT_DIR}/devdocs"
+[ ! -d "${ROOT_DIR}/reference" ] && mkdir "${ROOT_DIR}/reference"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs"
+[ ! -d "${ROOT_DIR}/reference/openapi" ] && mkdir "${ROOT_DIR}/reference/openapi"
+[ ! -d "${ROOT_DIR}/reference/openapi/mandel-plugins" ] && mkdir "${ROOT_DIR}/reference/openapi/mandel-plugins"
+[ ! -d "${ROOT_DIR}/reference/mandel-plugins" ] && mkdir "${ROOT_DIR}/reference/mandel-plugins"
+[ ! -d "${ROOT_DIR}/reference/mandel-contracts" ] && mkdir "${ROOT_DIR}/reference/mandel-contracts"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/mandel-cdt" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/mandel-cdt"
+[ ! -d "${ROOT_DIR}/reference/javadocs" ] && mkdir "${ROOT_DIR}/reference/javadocs"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/jsdocs" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/jsdocs"
+[ ! -d "${ROOT_DIR}/reference/swiftdocs" ] && mkdir "${ROOT_DIR}/reference/swiftdocs"
 
 echo "copying in static files, will not overwrite existing files"
 
 # copy over the main index file
-[ ! -f "${ROOT_DIR}/eosdocs/index.html" ] && cp "${SCRIPT_DIR}/../web/index.html" "${ROOT_DIR}/eosdocs/index.html"
-# copy over the logo
-[ ! -f "${ROOT_DIR}/eosdocs/eosn_logo.png" ] && cp "${SCRIPT_DIR}/../web/eosn_logo.png" "${ROOT_DIR}/eosdocs/eosn_logo.png"
+[ ! -f "${ROOT_DIR}/devdocs/eosdocs/index.md" ] && cp "${SCRIPT_DIR}/../web/index.md" "${ROOT_DIR}/devdocs/eosdocs/index.md"
+# copy over the logo these directories created when docusarus site is build
+[ ! -f "${ROOT_DIR}/devdocs/static/img/eosn_logo.png" ] && cp "${SCRIPT_DIR}/../web/eosn_logo.png" "${ROOT_DIR}/devdocs/static/img/eosn_logo.png"
+SMALL_LOGO="cropped-EOS-Network-Foundation-Site-Icon-1-150x150.png"
+[ ! -f "${ROOT_DIR}/devdocs/static/img/${SMALL_LOGO}" ] && cp "${SCRIPT_DIR}/../web/${SMALL_LOGO}" "${ROOT_DIR}/devdocs/static/img/${SMALL_LOGO}"
 # copy over the html with openapi documentation from mandel
 for i in ${SCRIPT_DIR}/../web/mandel-plugins/*.html
 do
   file_name=$(basename ${i})
-  [ ! -f "${ROOT_DIR}/eosdocs/mandel-plugins/${file_name}" ] && cp $i "${ROOT_DIR}/eosdocs/mandel-plugins/${file_name}"
+  [ ! -f "${ROOT_DIR}/reference/mandel-plugins/${file_name}" ] && cp $i "${ROOT_DIR}/reference/mandel-plugins/${file_name}"
 done

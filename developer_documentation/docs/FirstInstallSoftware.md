@@ -9,7 +9,7 @@ What to install to setup the documentation generation.
 TBD
 
 ## Docusaurus ##
-TBD
+This is installed by the `initialize_repository.sh` script. The script runs this installation because the docusarus install creates a directy structure. 
 
 ## Software ##
 ### `Redocly` ###
@@ -24,7 +24,7 @@ Recommended to install the open source version of the JDK. This will provide jav
 [AdoptOpenJDK](https://adoptopenjdk.net/releases.html?variant=openjdk8)
 
 ### `node & npm` ###
-Used for typescript document generation via typedoc
+Used to general markdown from typescript documentation or openapi
 
 Instructions on downloading and installing node and npm
 [Setup Node and NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)

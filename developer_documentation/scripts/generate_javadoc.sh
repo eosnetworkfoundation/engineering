@@ -16,7 +16,7 @@ GenJavaDoc() {
 
   WEB_ROOT=$1
   # location to write docs
-  DEST_DIR="${WEB_ROOT}/eosdocs/javadocs"
+  DEST_DIR="${WEB_ROOT}/reference/javadocs"
   # place to clone repo
   WORKING_DIR="${2}/../working"
   # repo

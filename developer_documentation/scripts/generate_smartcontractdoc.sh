@@ -13,7 +13,7 @@ GenCDTDoc() {
 
   WEB_ROOT=$1
   # location to write docs
-  DEST_DIR="${WEB_ROOT}/eosdocs/mandel-contracts"
+  DEST_DIR="${WEB_ROOT}/devdocs/eosdocs/mandel-cdt"
   # place to clone repo
   SCRIPT_DIR=$2
   WORKING_DIR="${SCRIPT_DIR}/../working"
@@ -49,7 +49,7 @@ GenSmartContractDoc() {
 
   WEB_ROOT=$1
   # location to write docs
-  DEST_DIR="${WEB_ROOT}/eosdocs/mandel-contracts"
+  DEST_DIR="${WEB_ROOT}/reference/mandel-contracts"
   # place to clone repo
   SCRIPT_DIR=$2
   WORKING_DIR="${SCRIPT_DIR}/../working"

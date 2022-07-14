@@ -1,3 +1,26 @@
+### setup docusaurus
+
+```
+npx create-docusaurus@latest devdocs classic --typescript
+cd devdocs```
+copy over developer documentation. copy entire folder under *devdocs* directory
+```cp -r eosdocs devdocs```
+then move favicon and logo into *devdocs/static/img* folder
+start editing config under *devdocs/docusaurus.config.js*
+update `presets: docs` to the following. this will reference eosdocs instead of docs.
+```
+docs: {
+  path: 'eosdocs',
+  routeBasePath: 'eosdocs',
+  sidebarPath: require.resolve('./sidebars.js'),
+},
+```
+Then build it
+```yarn build```
+
+#### Local Test of Docusaurus
+``` npm run serve -- --port 39999 ```
+
 ### mandel eosjs compile
 install types locally to get compiling working
 ```npm install --save @types/text-encoding
@@ -9,6 +32,11 @@ copy to jsdocs dir
 copy files under openapi to webserver directory. The magic happens with the included java-script in the html files.
 ```cp -r openapi/* /path/to/dir```
 Note change HTML to use .yaml files on github, otherwise regular copy down files
+
+### setup Widdershins CLI
+Documented on [Open API to Markdown](https://davidgarcia.dev/posts/openapi-to-markdown/)
+```npm i widdershins
+npx widdershins openapi.yaml -o openapi.md```
 
 ### setup swift documentation
 copy over source from repo

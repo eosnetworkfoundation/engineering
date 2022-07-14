@@ -47,6 +47,10 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # HTML Header File
 HEADER_HTML_FILE="${SCRIPT_DIR}/../web/header.html"
+# Overwrite docusarus config
+cp "${SCRIPT_DIR}/../config/docusaurus.config.js" "${ROOT_DIR}/devdocs"
+# Overwrite entry page for docusarus
+cp "${SCRIPT_DIR}/../web/docusaurus/index.tsx" "${ROOT_DIR}/devdocs/src/pages"
 
 ##################################
 # build out OpenAPI Docs from yaml

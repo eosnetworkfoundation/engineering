@@ -21,10 +21,9 @@ GenOpenAPI() {
   # enter working directory and clone repo
   cd $WORKING_DIR && git clone $GIT_URL
 
-
   # this copy is destructive
   for i in $(find mandel -name "*.yaml")
   do
-    cp $i "${WEB_ROOT}/eosdocs/openapi/mandel-plugins/"
+    cp $i "${WEB_ROOT}/reference/openapi/mandel-plugins/"
   done
 }

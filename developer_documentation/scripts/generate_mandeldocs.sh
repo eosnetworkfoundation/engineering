@@ -10,7 +10,7 @@ GenOpenAPI() {
   fi
   WEB_ROOT=$1
   WORKING_DIR="${2}/../working"
-  GIT_URL="https://github.com/eosnetworkfoundation/mandel"
+  GIT_URL="https://github.com/ericpassmore/mandel -b doc_cleanup"
 
   # pull from github
   # create working dir if it does not exist
@@ -26,4 +26,30 @@ GenOpenAPI() {
   do
     cp $i "${WEB_ROOT}/reference/openapi/mandel-plugins/"
   done
+}
+
+GenMandelToolDoc() {
+  if [[ $# -lt 2 ]] ; then
+      echo 'NOT ENOUGH ARGS: specify web root,  specify script dir '
+      exit 1
+  fi
+  DOC_ROOT="${1}/devdocs/eosdocs/developer-tools"
+  WORKING_DIR="${2}/../working"
+  GIT_URL="https://github.com/eosnetworkfoundation/mandel"
+
+  # assume working directory with git clone already exists
+  # if not create it and re-clone
+  if [ ! -d ${WORKING_DIR}/mandel ]; then
+    mkdir -p ${WORKING_DIR}/mandel
+    # enter working directory and clone repo
+    cd $WORKING_DIR && git clone $GIT_URL
+  else
+    cd $WORKING_DIR
+  fi
+
+  cd mandel
+  mkdir markdown_out
+  cp -R docs/* markdown_out/
+
+  cp -R markdown_out/* $DOC_ROOT
 }

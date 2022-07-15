@@ -54,8 +54,9 @@ cp "${SCRIPT_DIR}/../web/docusaurus/index.tsx" "${ROOT_DIR}/devdocs/src/pages"
 
 ##################################
 # build out OpenAPI Docs from yaml
-source ${SCRIPT_DIR}/generate_openapi.sh
+source ${SCRIPT_DIR}/generate_mandeldocs.sh
 GenOpenAPI $ROOT_DIR $SCRIPT_DIR
+###GenMandelToolDoc $ROOT_DIR $SCRIPT_DIR
 # build out javadocs
 source ${SCRIPT_DIR}/generate_javadoc.sh
 GenJavaDoc $ROOT_DIR $SCRIPT_DIR
@@ -68,3 +69,18 @@ GenJSDoc $ROOT_DIR $SCRIPT_DIR
 # build out smart contract documenation using doxygen
 source ${SCRIPT_DIR}/generate_smartcontractdoc.sh
 GenSmartContractDoc $ROOT_DIR $SCRIPT_DIR
+GenCDTDoc $ROOT_DIR $SCRIPT_DIR
+# build Dune docs
+#source ${SCRIPT_DIR}/generate_dune.sh
+#GenDuneDoc $ROOT_DIR $SCRIPT_DIR
+
+
+rm ${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-cdt/09_tutorials/01_binary-extension.md
+rm ${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-cdt/05_features/30_binary-extension.md
+rm ${ROOT_DIR}/devdocs/eosdocs/developer-tools/dune/README.md
+
+# remove js comments which mess up JSX parsing
+sed "/<\!--/,/-->/d" ${ROOT_DIR}/devdocs/eosdocs/developer-tools/02_cleos/03_command-reference/index.md > ${SCRIPT_DIR}/../working/tmp_index.md
+mv ${SCRIPT_DIR}/../working/tmp_index.md ${ROOT_DIR}/devdocs/eosdocs/developer-tools/02_cleos/03_command-reference/index.md
+
+# python script to properly title files for docusarus, otherwise everything is called index 

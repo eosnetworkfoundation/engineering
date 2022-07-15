@@ -7,16 +7,35 @@ Scripts to generate Web Documentation Portal. Goal of this project is create a s
 
 In addition, tools are included to help maintain documentation in source repositories. An example is broken link crawlers, looking for bad links in .md files.
 
-## Coverage ##
+## Organization ##
+
+Overview of documentation folder structure:
+* devdocs - docusarus
+   * eosdocs - toplevel markdown folder
+      * client-side - code repositories for developing clients
+      * smart-contracts - markdown documentation on contracts, and cdt
+      * developer-tools - markdown documentation on nodeos, cleos, and DUNE
+* reference - static html root (*sub dirs one-2-one with git repos*)
+   * mandel-contracts
+   * mandel-cdt
+   * ...
+   * swiftdocs
+
+
+### `Coverage` ###
 
 |   Topic  |  Source Repository  | Top Level Path | Delivered By |
 |  ------- | ------------------- | -------------- | ------------ |
-| Nodeos HTTP API | [mandel](https://github.com/eosnetworkfoundation/mandel) | eosdocs/mandel-plugins | docusaurus |
-| JS and Node Documentation | [mandel-eosjs](https://github.com/eosnetworkfoundation/mandel-eosjs) | eosdocs/jsdocs | docusaurus |
+| Nodeos HTTP API | [mandel](https://github.com/eosnetworkfoundation/mandel) | reference/mandel-plugins | static html with redocly |
+| JS and Node Documentation | [mandel-eosjs](https://github.com/eosnetworkfoundation/mandel-eosjs) | eosdocs/client-side/jsdocs | docusaurus |
 | Swift Documentation | [mandel-swift](https://github.com/eosnetworkfoundation/mandel-swift) | reference/swiftdocs | static html |
 | Java Documenation | [mandel-java](https://github.com/eosnetworkfoundation/mandel-java) | reference/javadocs | static html |
-| Smart Contracts | [mandel-contracts](https://github.com/eosnetworkfoundation/mandel-contracts) | eosdocs/mandel-contracts | docusarus |
-| Developer Tools | [mandel.cdt](https://github.com/eosnetworkfoundation/mandel.cdt) | eosdocs/mandel-cdt/ | docusarus |
+| Smart Contracts | [mandel-contracts](https://github.com/eosnetworkfoundation/mandel-contracts) | reference/mandel-contracts | static html |
+| Contract Developer Tools | [mandel.cdt](https://github.com/eosnetworkfoundation/mandel.cdt) | reference/mandel-cdt | static html |
+| DUNE -local host | [DUNE](https://github.com/eosnetworkfoundation/DUNE.git) | eosdocs/developer-tools/dune | docusarus |
+| Nodeos | [DUNE](https://github.com/eosnetworkfoundation/DUNE.git) | eosdocs/developer-tools/01_nodeos | docusarus |
+| Cleos | [DUNE](https://github.com/eosnetworkfoundation/DUNE.git) | eosdocs/developer-tools/02_cleos | docusarus |
+| Mandel Install | [DUNE](https://github.com/eosnetworkfoundation/DUNE.git) | eosdocs/developer-tools/00_install | docusarus |
 
 ## Initialize Content Repository ##
 See [First Install Software](docs/FirstInstallSoftware.md) for all the dependancies.

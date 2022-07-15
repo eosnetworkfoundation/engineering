@@ -25,7 +25,31 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'zh', 'ko'],
+    path: 'i18n',
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+        path: 'en',
+      },
+      zh: {
+        label: 'Chinese',
+        direction: 'ltr',
+        htmlLang: 'zh-CN',
+        calendar: 'gregory',
+        path: 'zh',
+      },
+      ko: {
+        label: 'Korean',
+        direction: 'ltr',
+        htmlLang: 'ko-KR',
+        calendar: 'gregory',
+        path: 'ko',
+      },
+    },
   },
 
   presets: [
@@ -62,13 +86,13 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'jsdocs/modules',
+            docId: 'client-side/jsdocs/modules',
             position: 'left',
             label: 'Client Side',
           },
           {
             type: 'doc',
-            docId: 'swiftdocsindex',
+            docId: 'client-side/swiftdocs/index',
             position: 'left',
             label: 'Developer Tools',
           },

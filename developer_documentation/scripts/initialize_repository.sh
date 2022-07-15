@@ -52,23 +52,43 @@ npx create-docusaurus@latest "${ROOT_DIR}/devdocs" classic --typescript
 
 echo "creating directories and adding templates under ${ROOT_DIR}"
 
-# make directories
-[ ! -d "${ROOT_DIR}/devdocs" ] && mkdir "${ROOT_DIR}/devdocs"
+# reference directories for static html files
 [ ! -d "${ROOT_DIR}/reference" ] && mkdir "${ROOT_DIR}/reference"
-[ ! -d "${ROOT_DIR}/devdocs/eosdocs" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs"
 [ ! -d "${ROOT_DIR}/reference/openapi" ] && mkdir "${ROOT_DIR}/reference/openapi"
 [ ! -d "${ROOT_DIR}/reference/openapi/mandel-plugins" ] && mkdir "${ROOT_DIR}/reference/openapi/mandel-plugins"
 [ ! -d "${ROOT_DIR}/reference/mandel-plugins" ] && mkdir "${ROOT_DIR}/reference/mandel-plugins"
 [ ! -d "${ROOT_DIR}/reference/mandel-contracts" ] && mkdir "${ROOT_DIR}/reference/mandel-contracts"
-[ ! -d "${ROOT_DIR}/devdocs/eosdocs/mandel-cdt" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/mandel-cdt"
+[ ! -d "${ROOT_DIR}/reference/mandel-cdt" ] && mkdir "${ROOT_DIR}/reference/mandel-cdt"
 [ ! -d "${ROOT_DIR}/reference/javadocs" ] && mkdir "${ROOT_DIR}/reference/javadocs"
-[ ! -d "${ROOT_DIR}/devdocs/eosdocs/jsdocs" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/jsdocs"
 [ ! -d "${ROOT_DIR}/reference/swiftdocs" ] && mkdir "${ROOT_DIR}/reference/swiftdocs"
+# devdocs root for docusaurus
+[ ! -d "${ROOT_DIR}/devdocs" ] && mkdir "${ROOT_DIR}/devdocs"
+# devdocs/eosdocs for markdown file, served via docusaurus
+# NOTE: single git repository can have both devdocs/eosdocs and reference
+#    reference for doxygen comments and code reference
+#    devdocs/eosdocs for readme
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs"
+# top level directories smart-contract client-side developer-tools
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/smart-contracts" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/smart-contracts"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/client-side" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/client-side"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/developer-tools" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/developer-tools"
+# smart contracts
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-cdt" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-cdt"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-contracts" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-contracts"
+# clients code
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/client-side/jsdocs" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/client-side/jsdocs"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/client-side/swiftdocs" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/client-side/swiftdocs"
+# developer tools
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/developer-tools" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/developer-tools"
+# dune repo
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/developer-tools/dune" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/developer-tools/dune"
+
+
 
 echo "copying in static files, will not overwrite existing files"
 
 # copy over the main index file
-[ ! -f "${ROOT_DIR}/devdocs/eosdocs/index.md" ] && cp "${SCRIPT_DIR}/../web/index.md" "${ROOT_DIR}/devdocs/eosdocs/index.md"
+[ ! -f "${ROOT_DIR}/devdocs/eosdocs/api-listing.md" ] && cp "${SCRIPT_DIR}/../web/index.md" "${ROOT_DIR}/devdocs/eosdocs/api-listing.md"
 # copy over the logo these directories created when docusarus site is build
 [ ! -f "${ROOT_DIR}/devdocs/static/img/eosn_logo.png" ] && cp "${SCRIPT_DIR}/../web/eosn_logo.png" "${ROOT_DIR}/devdocs/static/img/eosn_logo.png"
 SMALL_LOGO="cropped-EOS-Network-Foundation-Site-Icon-1-150x150.png"

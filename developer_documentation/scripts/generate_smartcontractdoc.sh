@@ -98,7 +98,9 @@ GenSmartContractDoc() {
   mv tmp_README.md markdown_out/README.md
 
   # pull in markdown docs from git
-  #cp -R docs/* markdown_out
+  cp -R docs/* markdown_out
+
+  find markdown_out -type f | xargs -I{} ./add_title.py {}
 
   # fix relative links
   REPLACE="https:\/\/github.com\/eosnetworkfoundation\/mandel-contracts\/blob\/main\/contracts\/eosio\."

@@ -88,7 +88,7 @@ echo "creating directories and adding templates under ${ROOT_DIR}"
 echo "copying in static files, will not overwrite existing files"
 
 # copy over the main index file
-[ ! -f "${ROOT_DIR}/devdocs/eosdocs/api-listing.md" ] && cp "${SCRIPT_DIR}/../web/index.md" "${ROOT_DIR}/devdocs/eosdocs/api-listing.md"
+[ ! -f "${ROOT_DIR}/devdocs/eosdocs/api-listing.md" ] && cp "${SCRIPT_DIR}/../web/api-listing.md" "${ROOT_DIR}/devdocs/eosdocs/api-listing.md"
 # copy over the logo these directories created when docusarus site is build
 [ ! -f "${ROOT_DIR}/devdocs/static/img/eosn_logo.png" ] && cp "${SCRIPT_DIR}/../web/eosn_logo.png" "${ROOT_DIR}/devdocs/static/img/eosn_logo.png"
 SMALL_LOGO="cropped-EOS-Network-Foundation-Site-Icon-1-150x150.png"

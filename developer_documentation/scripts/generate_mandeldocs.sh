@@ -10,7 +10,7 @@ GenOpenAPI() {
   fi
   WEB_ROOT=$1
   WORKING_DIR="${2}/../working"
-  GIT_URL="https://github.com/ericpassmore/mandel -b doc_cleanup"
+  GIT_URL="-b doc_cleanup https://github.com/ericpassmore/mandel"
 
   # pull from github
   # create working dir if it does not exist
@@ -35,7 +35,7 @@ GenMandelToolDoc() {
   fi
   DOC_ROOT="${1}/devdocs/eosdocs/developer-tools"
   WORKING_DIR="${2}/../working"
-  GIT_URL="https://github.com/eosnetworkfoundation/mandel"
+  GIT_URL="-b doc_cleanup https://github.com/ericpassmore/mandel"
 
   # assume working directory with git clone already exists
   # if not create it and re-clone
@@ -50,6 +50,8 @@ GenMandelToolDoc() {
   cd mandel
   mkdir markdown_out
   cp -R docs/* markdown_out/
+
+  find markdown_out -type f | xargs -I{} ./add_title.py {}
 
   cp -R markdown_out/* $DOC_ROOT
 }

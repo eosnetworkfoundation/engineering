@@ -1,0 +1,100 @@
+### setup docusaurus
+
+```
+npx create-docusaurus@latest devdocs classic --typescript
+cd devdocs```
+copy over developer documentation. copy entire folder under *devdocs* directory
+```cp -r eosdocs devdocs```
+then move favicon and logo into *devdocs/static/img* folder
+start editing config under *devdocs/docusaurus.config.js*
+update `presets: docs` to the following. this will reference eosdocs instead of docs.
+```
+docs: {
+  path: 'eosdocs',
+  routeBasePath: 'eosdocs',
+  sidebarPath: require.resolve('./sidebars.js'),
+},
+```
+Then build it
+```yarn build```
+
+#### Local Test of Docusaurus
+``` npm run serve -- --port 39999 ```
+
+### mandel eosjs compile
+install types locally to get compiling working
+```npm install --save @types/text-encoding
+   node_modules/typedoc/bin/typedoc --plugin typedoc-plugin-markdown```
+copy to jsdocs dir
+
+
+### setup redocly documentation
+copy files under openapi to webserver directory. The magic happens with the included java-script in the html files.
+```cp -r openapi/* /path/to/dir```
+Note change HTML to use .yaml files on github, otherwise regular copy down files
+
+### setup swift documentation
+copy over source from repo
+```cp -R $DIR/eosnetworkfoundation/repos/mandel-swift/docs/* .```
+update index.md with proper server url
+```sed 's/https\:\/\/eosio.github.io\/eosio-swift\//https\:\/\/igeebon.com\/eosdocs\/swiftdocs\//' index.md > tmp.md
+mv tmp.md index.md```
+create index.html replace the title, git-hub link, and spec file
+```cp $DIR/eosnetworkfoundation/automated-web-documentation/templates/markdownconverter.html .```
+copy over to web doc root
+```cp -R * $DOCROOT/swiftdocs/```
+
+### setup javadocs
+run shell script
+```generate_javadoc_cmd.sh src_dir```
+copy files to webroot
+```cp -R test $WEBROOT/javadocs```
+
+### setup other repositories
+**mandel-contracts**
+TBD
+**Mandel-cdt**
+TBD
+**Mandel-silkworm**
+TBD
+**Mandel-appbase**
+TBD
+**Mandel-WAT**
+TBD
+**Mandel-chainbase**
+TBD
+
+
+
+###setup PageDown
+located at doc root
+converts markdown to HTML
+```curl https://storage.googleapis.com/google-code-archive-source/v2/code.google.com/pagedown/source-archive.zip --output pagedown.zip
+unzip pagedown.zip ```
+
+### setup jsdoc
+install locally
+```npm i jsdoc```
+test install
+```./node_modules/.bin/jsdoc -h```
+run to create documentation
+```./node_modules/.bin/jsdoc -c ./jsdoc.conf ```
+update templates with better home
+```for i in *.html
+do
+echo $i
+sed 's/<h2><a href="index.html">Home<\/a><\/h2>/<h2><a href="https\:\/\/igeebon.com\/eosdocs\/docs\/index.html">Home<\/a><\/h2><h3><a href="index.html">JS Doc Home<\/a><\/h3>/' $i > tmp.html
+mv tmp.html $i
+done```
+
+## Debugging
+### install redocly client
+Note: this is the global install usefull for debugging
+Get latest
+```npm install``
+install client
+```npm i -g @redocly/cli@latest```
+validate install
+```redocly --version```
+validate docs
+```redocly lint openapi.yaml```

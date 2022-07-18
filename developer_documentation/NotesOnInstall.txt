@@ -33,11 +33,6 @@ copy files under openapi to webserver directory. The magic happens with the incl
 ```cp -r openapi/* /path/to/dir```
 Note change HTML to use .yaml files on github, otherwise regular copy down files
 
-### setup Widdershins CLI
-Documented on [Open API to Markdown](https://davidgarcia.dev/posts/openapi-to-markdown/)
-```npm i widdershins
-npx widdershins openapi.yaml -o openapi.md```
-
 ### setup swift documentation
 copy over source from repo
 ```cp -R $DIR/eosnetworkfoundation/repos/mandel-swift/docs/* .```

@@ -47,6 +47,10 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # HTML Header File
 HEADER_HTML_FILE="${SCRIPT_DIR}/../web/header.html"
+# MAIN Index page
+cp ${SCRIPT_DIR}/../web/index.md "${ROOT_DIR}/devdocs/eosdocs"
+# Client Index Page
+cp ${SCRIPT_DIR}/../web/client-side/index.md "${ROOT_DIR}/devdocs/eosdocs/client-side/"
 # Overwrite docusarus config
 cp "${SCRIPT_DIR}/../config/docusaurus.config.js" "${ROOT_DIR}/devdocs"
 # Overwrite entry page for docusarus
@@ -73,3 +77,10 @@ GenCDTDoc $ROOT_DIR $SCRIPT_DIR
 # build Dune docs
 #source ${SCRIPT_DIR}/generate_dune.sh
 #GenDuneDoc $ROOT_DIR $SCRIPT_DIR
+
+find ${ROOT_DIR}/devdocs/eosdocs -type f | xargs -I{} ./add_title.py {}
+
+echo "NEXT STEPS *******"
+echo "cd ${ROOT_DIR}/devdocs"
+echo "yarn build"
+echo "npm run serve -- --port 39999"

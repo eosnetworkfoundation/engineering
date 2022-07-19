@@ -78,7 +78,9 @@ GenCDTDoc $ROOT_DIR $SCRIPT_DIR
 #source ${SCRIPT_DIR}/generate_dune.sh
 #GenDuneDoc $ROOT_DIR $SCRIPT_DIR
 
-find ${ROOT_DIR}/devdocs/eosdocs -type f | xargs -I{} ./add_title.py {}
+find ${ROOT_DIR}/devdocs/eosdocs/developer-tools -type f | xargs -I{} ${SCRIPT_DIR}/add_title.py {}
+
+cp -r ${SCRIPT_DIR}/../web/docusaurus/i18n ${ROOT_DIR}/devdocs/
 
 echo "NEXT STEPS *******"
 echo "cd ${ROOT_DIR}/devdocs"

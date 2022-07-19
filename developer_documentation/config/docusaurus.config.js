@@ -86,15 +86,19 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'client-side/jsdocs/modules',
+            docId: 'client-side/index',
             position: 'left',
             label: 'Client Side',
           },
           {
             type: 'doc',
-            docId: 'client-side/swiftdocs/index',
+            docId: 'developer-tools/index',
             position: 'left',
             label: 'Developer Tools',
+          },
+          {
+            type: 'localeDropdown',
+            position: 'right',
           },
           {
             href: 'https://github.com/eosnetworkfoundation',

@@ -21,6 +21,14 @@ Then build it
 #### Local Test of Docusaurus
 ``` npm run serve -- --port 39999 ```
 
+#### Initialize Docusaurus Translations
+**don't do this, the translations are copied in via install scripts**
+If it is your first time run the write-translation plugin to generate the i18n files. Look at *root/i18n* for these files. These file support all of your theme stuff including navbar.
+```
+npm run write-translations -- --locale zh
+npm run write-translations -- --locale ko
+```
+
 ### mandel eosjs compile
 install types locally to get compiling working
 ```npm install --save @types/text-encoding

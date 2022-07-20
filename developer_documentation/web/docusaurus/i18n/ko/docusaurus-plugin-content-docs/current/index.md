@@ -1,7 +1,7 @@
 ---
-title: Eosdocs
+title: Home
 ---
-# 안녕하세요 세계 
+# 안녕하세요 세계
 
 * [API 목록](api-listing.md)
 * [개발툴](developer-tools/)

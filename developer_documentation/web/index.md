@@ -1,7 +1,7 @@
 ---
-title: Eosdocs
+title: Home
 ---
-# Hello World 
+# Hello World
 
 * [API Listing](api-listing.md)
 * [Developer Tools](developer-tools/)

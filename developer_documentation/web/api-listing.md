@@ -26,3 +26,6 @@ HTTP API refereces for working with **Nodeos**
 - [esio.msig](https://igeebon.com/reference/mandel-contracts/classeosio_1_1multisig.html): Contract defines the structures and actions needed to manage the proposals and approvals on blockchain
 - [esio.wrap](https://igeebon.com/reference/mandel-contracts/classeosio_1_1wrap.html): Contract simplifies Block Producer superuser actions by making them more readable and easier to audit
 - [esio.bios](https://igeebon.com/reference/mandel-contracts/classeosiobios_1_1bios.html): Contract defines the structures and actions needed for blockchain's basic core functionality
+
+## Contract Developer Toolkit Reference ##
+- [Contract Developer Toolkit](https://igeebon.com/reference/mandel-cdt/annotated.html): Annotated Code Reference

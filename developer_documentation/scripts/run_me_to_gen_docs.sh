@@ -79,6 +79,7 @@ GenCDTDoc $ROOT_DIR $SCRIPT_DIR
 #GenDuneDoc $ROOT_DIR $SCRIPT_DIR
 
 find ${ROOT_DIR}/devdocs/eosdocs/developer-tools -type f | xargs -I{} ${SCRIPT_DIR}/add_title.py {}
+find ${ROOT_DIR}/devdocs/eosdocs/client-side -type f | xargs -I{} ${SCRIPT_DIR}/add_title.py {}
 
 cp -r ${SCRIPT_DIR}/../web/docusaurus/i18n ${ROOT_DIR}/devdocs/
 

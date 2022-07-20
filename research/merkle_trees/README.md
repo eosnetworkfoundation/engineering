@@ -4,7 +4,7 @@
 
 The nodes of the Merkle tree over an append-only sequence of leaf nodes can be referenced in a systematic way using the notation `node(max_ordinal, level)`, or just $\textrm{node}(m, l)$ for short with $m, l \in \mathbb{N}$. The argument `level`, or $l$, within the node reference captures the level of the referenced node within the tree; $l = 0$ used for leaf nodes and parent nodes have higher values of $l$. In references to leaf nodes specifically, `max_ordinal`, or $m$, represents the ordinal (counting from zero) of the leaf node within the sequence of leaf nodes appended to the Merkle tree. More generally, the `max_ordinal`, or $m$, of a node reference captures the maximum value of the set of ordinals of lead nodes reachable within the tree (either directly as children or indirectly as descendants) from a root node referred to by the node reference. Note that in a Merkle tree, each node contain a cryptographic digest which cryptographically commits to all digests in descendant nodes.
 
-Define the set of valid node references $\mathcal{N} = \left\{ (m, l) \in \mathbb{N} \times \mathbb{N} \mid S((m, l)) \lor U((m, l)) \right\}$ where predicates $S(r)$ and $U(r)$ are defined for all $r \in \mathbb{N} \times \mathbb{N}$ as follows:
+Define the set of valid node references $\mathcal{N} = \left\lbrace (m, l) \in \mathbb{N} \times \mathbb{N} \mid S((m, l)) \lor U((m, l)) \right\rbrace$ where predicates $S(r)$ and $U(r)$ are defined for all $r \in \mathbb{N} \times \mathbb{N}$ as follows:
 
 * $S(r = (m, l))$ denotes $\exists k \in \mathbb{N} : m + 1 = k \cdot 2^l$. $S(r)$ is referred to as the stable node predicate.
 * $U(r = (m, l))$ denotes $\left\lfloor m \cdot 2^{(1 - l)} \right\rfloor$ is odd. $U(r)$ is referred to as the unstable node predicate.

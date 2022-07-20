@@ -361,8 +361,7 @@ def roots_containing_node(target_node_ref: NodeReference) -> NodeReferenceRange:
 
     start_level: NonnegativeInt = log2(target_node_ref.max_ordinal + 1).ceil
 
-    start = NodeReference(
-        max_ordinal=target_node_ref.max_ordinal, level=start_level)
+    start = NodeReference(max_ordinal=target_node_ref.max_ordinal, level=start_level)
 
     if classification == NodeReferenceClassification.STABLE:
         end_max_ordinal: NonnegativeInt = target_node_ref.max_ordinal + (1 << target_node_ref.level) - 1

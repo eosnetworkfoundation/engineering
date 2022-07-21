@@ -51,7 +51,8 @@ GenCDTDoc() {
   # pull in markdown docs from git
   cp -R docs/* markdown_out
   # copy into serving location
-  #cp -R markdown_out/* $DOC_DIR
+  # too many issues to fix ....
+  # cp -R markdown_out/* $DOC_DIR
 }
 
 GenSmartContractDoc() {
@@ -100,36 +101,34 @@ GenSmartContractDoc() {
   # pull in markdown docs from git
   cp -R docs/* markdown_out
 
-  find markdown_out -type f | xargs -I{} ./add_title.py {}
-
   # fix relative links
-  REPLACE="https:\/\/github.com\/eosnetworkfoundation\/mandel-contracts\/blob\/main\/contracts\/eosio\."
+  REPLACE="\/reference\/mandel-contracts\/annotated.html"
   FIND="contracts\/eosio\."
   sed 's/${FIND}/${REPLACE}/g' markdown_out/README.md > tmp_README.md
   mv tmp_README.md markdown_out/README.md
 
   FIND="action-reference\/eosio\.bios"
-  REPLACE="https:\/\/igeebon.com\/reference\/mandel-contracts\/classeosiobios_1_1bios\.html"
+  REPLACE="\/reference\/mandel-contracts\/classeosiobios_1_1bios\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.system"
-  REPLACE="https:\/\/igeebon.com\/reference\/mandel-contracts\/classeosiosystem_1_1system__contract\.html"
+  REPLACE="\/reference\/mandel-contracts\/classeosiosystem_1_1system__contract\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.msig"
-  REPLACE="https:\/\/igeebon.com\/reference\/mandel-contracts\/classeosio_1_1multisig\.html"
+  REPLACE="\/reference\/mandel-contracts\/classeosio_1_1multisig\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.token"
-  REPLACE="https:\/\/igeebon.com\/reference\/mandel-contracts\/classeosio_1_1token\.html"
+  REPLACE="\/reference\/mandel-contracts\/classeosio_1_1token\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.wrap"
-  REPLACE="https:\/\/igeebon.com\/reference\/mandel-contracts\/classeosio_1_1wrap\.html"
+  REPLACE="\/reference\/mandel-contracts\/classeosio_1_1wrap\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 

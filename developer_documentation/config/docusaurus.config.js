@@ -8,9 +8,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'EOS Developer Documenation',
   tagline: 'Documentation for Developing on EOS Blockchain',
-  url: 'https://igeebon.com',
+  url: 'https://docs.eosnetwork.com/',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   // image under statics directory
   favicon: 'img/cropped-EOS-Network-Foundation-Site-Icon-1-150x150.png',
@@ -80,7 +80,7 @@ const config = {
         },
         items: [
           {
-            href: 'https://igeebon.com/reference/mandel-contracts/annotated.html',
+            href: '/reference/mandel-contracts/annotated.html',
             position: 'left',
             label: 'Smart Contracts',
           },

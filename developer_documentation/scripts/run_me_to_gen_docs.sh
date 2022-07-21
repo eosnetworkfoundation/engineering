@@ -84,6 +84,5 @@ find ${ROOT_DIR}/devdocs/eosdocs/client-side -type f | xargs -I{} ${SCRIPT_DIR}/
 cp -r ${SCRIPT_DIR}/../web/docusaurus/i18n ${ROOT_DIR}/devdocs/
 
 echo "NEXT STEPS *******"
-echo "cd ${ROOT_DIR}/devdocs"
-echo "yarn build"
-echo "npm run serve -- --port 39999"
+cd ${ROOT_DIR}/devdocs
+yarn build

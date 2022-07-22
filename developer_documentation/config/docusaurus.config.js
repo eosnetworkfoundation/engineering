@@ -142,6 +142,8 @@ const config = {
               },
             ],
           },
+          /*
+          // ********* More links in footer
           {
             title: 'More',
             items: [
@@ -155,6 +157,7 @@ const config = {
               },
             ],
           },
+          */
         ],
         copyright: `Copyright © ${new Date().getFullYear()} EOS Network.`,
       },

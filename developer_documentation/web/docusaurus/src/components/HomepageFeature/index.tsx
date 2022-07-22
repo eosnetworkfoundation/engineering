@@ -2,10 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
+import Link from '@docusaurus/Link';
+
+
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
+  link: string;
 };
 
 const FeatureList: FeatureItem[] = [
@@ -34,19 +37,24 @@ const FeatureList: FeatureItem[] = [
         Bring the power of EOS into your website, or mobile app.
       </>
     ),
-    link: '/eosdocs/client-sdk/',
+    link: '/eosdocs/client-side/',
   },
 ];
 
 function Feature({title, description, link}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <a href={link}>
-        <div className="text--center padding-horiz--md">
+      <div className="text--center padding-horiz--md">
           <h3>{title}</h3>
           <p>{description}</p>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to={link}>
+              {title}
+            </Link>
+          </div>
         </div>
-      </a>
     </div>
   );
 }

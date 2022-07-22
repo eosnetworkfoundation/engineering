@@ -23,8 +23,8 @@ FixProtocol() {
   PROTOCOL=${2:-https}
   # already https , so no-op if new value is https
   if [ $PROTOCOL != "https" ]; then
-    #sed 's/  /  /g' $FILE > /tmp/fixprotocol.txt
-    #mv /tmp/fixprotocol.txt $FILE
+    sed "s/https:\/\/docs.eosnetwork.com\//${PROTOCOL}:\/\/docs.eosnetwork.com\//g" $FILE > /tmp/fixprotocol.txt
+    mv /tmp/fixprotocol.txt $FILE
   fi
 }
 
@@ -74,7 +74,7 @@ FixProtocol ${SCRIPT_DIR}/../config/docusaurus.config.js $PROTOCOL
 cp "${SCRIPT_DIR}/../config/docusaurus.config.js" "${ROOT_DIR}/devdocs"
 # Overwrite entry page for docusarus
 cp "${SCRIPT_DIR}/../web/docusaurus/src/pages/index.tsx" "${ROOT_DIR}/devdocs/src/pages"
-cp "${SCRIPT_DIR}/../web/docusaurus/src/components/HomepageFeature/index.tsx" "${ROOT_DIR}/devdocs/src/components/HomepageFeature"
+cp "${SCRIPT_DIR}/../web/docusaurus/src/components/HomepageFeature/index.tsx" "${ROOT_DIR}/devdocs/src/components/HomepageFeatures"
 # Customer CSS for Doc6s
 cp "${SCRIPT_DIR}/../web/docusaurus/src/css/custom.css" "${ROOT_DIR}/devdocs/src/css"
 

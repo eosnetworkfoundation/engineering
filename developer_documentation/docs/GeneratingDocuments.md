@@ -56,3 +56,12 @@ npm run write-translations -- --locale en
 
 ## Updating Content ##
 When changing content under the `engineering/developer_documentation/web` folder make sure to check for localized versions. You will find those versions under `i18n/xx/docusaurus-plugin-content-docs/current`. For example when you change `api-listing.md` you must also change `i18n/zh/docusaurus-plugin-content-docs/current/api-listing.md` and change `i18n/ko/docusaurus-plugin-content-docs/current/api-listing.md`.
+
+## Running local site ##
+You can run Docusaurus locally to debug. Cd to `/path/to/webroot/devdocs` and your port may differ. Note this won't pick up the files under references.
+```
+cd /path/to/webroot/devdocs
+npm run serve -- --port 39999
+```
+
+You may need to rerun `yarn build` to generate the build directory. 

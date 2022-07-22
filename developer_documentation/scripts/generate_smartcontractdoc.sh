@@ -105,32 +105,32 @@ GenSmartContractDoc() {
   # fix relative links
   REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/annotated.html"
   FIND="contracts\/eosio\."
-  sed 's/${FIND}/${REPLACE}/g' markdown_out/README.md > tmp_README.md
+  sed "s/${FIND}/${REPLACE}/g" markdown_out/README.md > tmp_README.md
   mv tmp_README.md markdown_out/README.md
 
   FIND="action-reference\/eosio\.bios"
   REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosiobios_1_1bios\.html"
-  sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
+  sed "s/${FIND}/${REPLACE}/" markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.system"
   REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosiosystem_1_1system__contract\.html"
-  sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
+  sed "s/${FIND}/${REPLACE}/" markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.msig"
   REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosio_1_1multisig\.html"
-  sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
+  sed "s/${FIND}/${REPLACE}/" markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.token"
   REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosio_1_1token\.html"
-  sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
+  sed "s/${FIND}/${REPLACE}/" markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.wrap"
   REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosio_1_1wrap\.html"
-  sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
+  sed "s/${FIND}/${REPLACE}/" markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   # copy into serving location

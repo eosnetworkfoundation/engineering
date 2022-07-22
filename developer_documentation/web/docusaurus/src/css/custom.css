@@ -46,6 +46,10 @@
 .col--4 {
     --ifm-col-width: 30%;
 }
+/* space under button */
+.col--4 div a.button {
+    margin-bottom: 1em;
+}
 /* homepage 3 boxes */
 .container .row .col.col--4 {
     border: 1px solid var(--ifm-color-primary);

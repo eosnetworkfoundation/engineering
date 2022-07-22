@@ -80,7 +80,7 @@ const config = {
         },
         items: [
           {
-            href: '/reference/mandel-contracts/annotated.html',
+            href: 'https://docs.eosnetwork.com/reference/mandel-contracts/annotated.html',
             position: 'left',
             label: 'Smart Contracts',
           },
@@ -156,7 +156,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} EOS Network. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} EOS Network.`,
       },
       prism: {
         theme: lightCodeTheme,

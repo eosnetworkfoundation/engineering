@@ -72,6 +72,7 @@ GenSmartContractDoc() {
   GIT_URL="https://github.com/eosnetworkfoundation/mandel-contracts"
   # location of markdown docs inside repo
   DOC_PATH="docs"
+  PROTOCOL=${3:-https}
 
   # pull from github
   # create working dir if it does not exist
@@ -102,33 +103,33 @@ GenSmartContractDoc() {
   cp -R docs/* markdown_out
 
   # fix relative links
-  REPLACE="\/reference\/mandel-contracts\/annotated.html"
+  REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/annotated.html"
   FIND="contracts\/eosio\."
   sed 's/${FIND}/${REPLACE}/g' markdown_out/README.md > tmp_README.md
   mv tmp_README.md markdown_out/README.md
 
   FIND="action-reference\/eosio\.bios"
-  REPLACE="\/reference\/mandel-contracts\/classeosiobios_1_1bios\.html"
+  REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosiobios_1_1bios\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.system"
-  REPLACE="\/reference\/mandel-contracts\/classeosiosystem_1_1system__contract\.html"
+  REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosiosystem_1_1system__contract\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.msig"
-  REPLACE="\/reference\/mandel-contracts\/classeosio_1_1multisig\.html"
+  REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosio_1_1multisig\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.token"
-  REPLACE="\/reference\/mandel-contracts\/classeosio_1_1token\.html"
+  REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosio_1_1token\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 
   FIND="action-reference\/eosio\.wrap"
-  REPLACE="\/reference\/mandel-contracts\/classeosio_1_1wrap\.html"
+  REPLACE="${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/mandel-contracts\/classeosio_1_1wrap\.html"
   sed 's/${FIND}/${REPLACE}/' markdown_out/index.md > tmp_index.md
   mv tmp_index.md markdown_out/index.md
 

@@ -249,5 +249,25 @@
   "theme.docs.sidebar.expandButtonAriaLabel": {
     "message": "展开侧边栏",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "EOS Developer Documenation": {
+    "message": "EOS 程序员 文档",
+     "description": "Title of site on homepage in index.tsx code"
+  },
+  "Documentation for Developing on EOS Blockchain": {
+     "message": "Documentation for Developing on EOS Blockchain",
+     "description": "Tagline on homepage in index.tsx code"
+  },
+  "Smart Contracts": {
+     "message": "智能合约",
+     "description": "Navbar item with label Smart Contracts"
+  },
+  "Client SDK": {
+     "message": "在客户端",
+     "description": "Navbar item with label Client Side"
+  },
+  "Developer Tools": {
+     "message": "開發工具",
+     "description": "Navbar item with label Developer Tools"
   }
 }

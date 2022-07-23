@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 
 import Link from '@docusaurus/Link';
 
+import Translate, {translate} from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
@@ -13,29 +14,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Smart Contracts',
+    title: <Translate>Smart Contracts</Translate>,
     description: (
-      <>
+      <Translate>
         Leverage the power of EOS, and distributed computing to build your own dApp.
-      </>
+      </Translate>
     ),
     link: 'http://docs.eosnetwork.com/reference/mandel-contracts/classeosiosystem_1_1system__contract.html',
   },
   {
-    title: 'Developer Tools',
+    title: <Translate>Developer Tools</Translate>,
     description: (
-      <>
+      <Translate>
         Under the hood look at the developer tools to work with the EOS blockchain.
-      </>
+      </Translate>
     ),
     link: '/eosdocs/developer-tools/',
   },
   {
-    title: 'Client SDK',
+    title: <Translate>Client SDK</Translate>,
     description: (
-      <>
+      <Translate>
         Bring the power of EOS into your website, or mobile app.
-      </>
+      </Translate>
     ),
     link: '/eosdocs/client-side/',
   },

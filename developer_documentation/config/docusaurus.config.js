@@ -36,14 +36,14 @@ const config = {
         path: 'en',
       },
       zh: {
-        label: 'Chinese',
+        label: '中文 Chinese',
         direction: 'ltr',
         htmlLang: 'zh-CN',
         calendar: 'gregory',
         path: 'zh',
       },
       ko: {
-        label: 'Korean',
+        label: '한국어 Korean',
         direction: 'ltr',
         htmlLang: 'ko-KR',
         calendar: 'gregory',

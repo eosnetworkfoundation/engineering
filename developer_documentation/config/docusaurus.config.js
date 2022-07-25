@@ -8,9 +8,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'EOS Developer Documenation',
   tagline: 'Documentation for Developing on EOS Blockchain',
-  url: 'https://igeebon.com',
+  url: 'https://docs.eosnetwork.com/',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   // image under statics directory
   favicon: 'img/cropped-EOS-Network-Foundation-Site-Icon-1-150x150.png',
@@ -36,14 +36,14 @@ const config = {
         path: 'en',
       },
       zh: {
-        label: 'Chinese',
+        label: '中文 Chinese',
         direction: 'ltr',
         htmlLang: 'zh-CN',
         calendar: 'gregory',
         path: 'zh',
       },
       ko: {
-        label: 'Korean',
+        label: '한국어 Korean',
         direction: 'ltr',
         htmlLang: 'ko-KR',
         calendar: 'gregory',
@@ -80,21 +80,25 @@ const config = {
         },
         items: [
           {
-            href: 'https://igeebon.com/reference/mandel-contracts/annotated.html',
+            href: 'https://docs.eosnetwork.com/reference/mandel-contracts/annotated.html',
             position: 'left',
             label: 'Smart Contracts',
           },
           {
             type: 'doc',
-            docId: 'client-side/jsdocs/modules',
+            docId: 'client-side/index',
             position: 'left',
             label: 'Client Side',
           },
           {
             type: 'doc',
-            docId: 'client-side/swiftdocs/index',
+            docId: 'developer-tools/index',
             position: 'left',
             label: 'Developer Tools',
+          },
+          {
+            type: 'localeDropdown',
+            position: 'right',
           },
           {
             href: 'https://github.com/eosnetworkfoundation',
@@ -138,6 +142,8 @@ const config = {
               },
             ],
           },
+          /*
+          // ********* More links in footer
           {
             title: 'More',
             items: [
@@ -151,8 +157,9 @@ const config = {
               },
             ],
           },
+          */
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} EOS Network. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} EOS Network.`,
       },
       prism: {
         theme: lightCodeTheme,

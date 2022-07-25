@@ -33,7 +33,7 @@ file_name_filter = re.compile(".+\.md$")
 ########### BEHAVIORS ##################
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
-
+##### Class for document
 class Document:
     has_metablock = False
     is_valid_metablock = False
@@ -79,7 +79,9 @@ class Document:
     def update_metablock(self,newblock):
         return re.sub(self.metabock_replace_pattern, newblock, self.contents, 1)
 
+##### END Class Document #######
 
+##### Class for format of meta data
 class MetaBlock:
     start_meta_section = "---"
     title = "title"
@@ -89,20 +91,62 @@ class MetaBlock:
     def block(self,value):
         return f"{self.start_meta_section}\n{self.title}{self.seperator} {value}\n{self.start_meta_section}\n"
 
+##### END Class MetaBlock #######
+
+#### Global Method for Determine Client Side Path
+def is_client_side(file_parts):
+
+    is_client_side = False
+
+    if len(file_parts) > 4 and (
+        file_parts[-3] == "client-side"
+        or file_parts[-4] == "client-side"
+        ):
+
+        is_client_side = True
+
+    return is_client_side
+
+#### Global Method default way of creating title tag
+def general_title(sub_directory, last_item, extensions):
+    value = sub_directory.replace("_"," ")
+    if last_item != "index.md":
+        # remove the extenstion and turn undscr to space
+        value = str(last_item).removesuffix(extensions).replace("_"," ")
+    return value
+
+#### Global Method client-side way of creating title tag
+def client_side_title(sub_directory, last_item):
+    value = ""
+    if sub_directory == "swiftdocs" and last_item == "index.md":
+        return "eos Swift sdk Overview"
+    if sub_directory == "jsdocs" and last_item == "README.md":
+        return "eos js sdk"
+    if sub_directory == "jsdocs" and last_item == "LICENSE.md":
+            return "eos js sdk License"
+    if sub_directory == "jsdocs" and last_item == "CONTRIBUTING.md":
+            return "Contributing"
+    if sub_directory == "jsdocs" and last_item == "modules.md":
+            return "eos js Exports"
+    if sub_directory == "swiftdocs" and last_item == "README.md":
+        return "eos Swift Overview"
+    return value
+
+#### Global Method calculate the proper title for the doc
+#### Note: ok to return empty value
+####       value.len()<2 will be skipped during doc write
 def calculate_value(file_name):
     p = Path(file_name)
     file_components = p.parts
     last_item = file_components[-1]
     sub_directory = file_components[-2]
 
-    value = sub_directory.replace("_"," ")
-    if last_item == "index.md":
-        value = sub_directory.replace("_"," ")
+    if is_client_side(file_components):
+        value = client_side_title(sub_directory, last_item)
     else:
-        # strip filename extensions
+        # filename extensions
         extensions = "".join(p.suffixes)
-        # remove the extenstion and turn undscr to space
-        value = str(last_item).removesuffix(extensions).replace("_"," ")
+        value = general_title(sub_directory, last_item, extensions)
 
     # remove leading numbers and spaces
     value = value.lstrip('0123456789 ')
@@ -135,9 +179,13 @@ if ( not f_document.has_metablock ) or \
     with open(full_file_path, 'w', encoding="utf-8") as f:
         # if no meta block : add one
         if not f_document.has_metablock:
-            logging.debug("\t\t NO METADATA BLOCK")
             value = calculate_value(full_file_path)
-            newblock = meta_block.block(value)
+            # default to empty
+            newblock = ""
+            # if value is legit set metadata
+            if len(value) >2:
+                logging.debug("\t\t NO METADATA BLOCK")
+                newblock = meta_block.block(value)
             f.write(newblock+f_content)
             # else if meta block exists
         else:

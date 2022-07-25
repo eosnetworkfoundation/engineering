@@ -2,7 +2,7 @@
 Scripts to generate Web Documentation Portal. Goal of this project is create a single documentation portal linking together documentation across the EOS Network's code repositories. This portal will make an effort to make it easy to build and maintain EOS projects.
 * Single place EOS documentation
 * Unified presentation of documentation
-* Single navigation heirarchy covering documentation
+* Single navigation hierarchy covering documentation
 * Consistent UI for documentation
 
 In addition, tools are included to help maintain documentation in source repositories. An example is broken link crawlers, looking for bad links in .md files.
@@ -56,19 +56,21 @@ $ curl http://host.com/eosdocs/
 ```
 
 ## Generating and Installing Content ##
-clones various git repos, extracts documentation and then copies to webroot folder
+Clones various git repos, extracts documentation and then copies to webroot folder. The `-u` option switches protocol to http for docs.eosnetwork.com, because https is not supported at this time. Without the `-u` option protocol reverts to https.
 ```console
 $ cd scripts
-$ ./run_me_to_gen_docs.sh -d /path/to/webroot
+$ ./run_me_to_gen_docs.sh -u -d /path/to/webroot
 ```
 
-After running there will be many files under `/path/to/webroot/devdocs/eosdocs`.
+After running there will be many files under `/path/to/webroot/devdocs/eosdocs` and under `/path/to/webroot/reference`.
 
-## Running Docusaurus ##
-Your `/path/to/webroot/devdocs` and your port may differ
-```console
-$ cd /path/to/webroot/devdocs
-$ npm run serve -- --port 39999
+## Last Step ##
+The doc6s static html is nested under too many directory. Surface the data
 ```
+mv /path/to/webroot/devdocs/eosdocs/build/* /path/to/webroot
+rm -rf /path/to/webroot/devdocs
+```
+
+
 
 See [Generating Documents](docs/GeneratingDocuments.md) for additional details

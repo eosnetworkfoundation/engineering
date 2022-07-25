@@ -83,16 +83,25 @@ echo "creating directories and adding templates under ${ROOT_DIR}"
 # dune repo
 [ ! -d "${ROOT_DIR}/devdocs/eosdocs/developer-tools/dune" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/developer-tools/dune"
 
-
+# i18n directories zh and ko, english is the default and not included
+[ ! -d "${ROOT_DIR}/devdocs/i18n" ] && mkdir "${ROOT_DIR}/devdocs/i18n"
+[ ! -d "${ROOT_DIR}/devdocs/i18n/ko" ] && mkdir "${ROOT_DIR}/devdocs/i18n/ko"
+[ ! -d "${ROOT_DIR}/devdocs/i18n/zh" ] && mkdir "${ROOT_DIR}/devdocs/i18n/zh"
+[ ! -d "${ROOT_DIR}/devdocs/i18n/zh/docusaurus-plugin-content-docs" ] && mkdir "${ROOT_DIR}/devdocs/i18n/zh/docusaurus-plugin-content-docs"
+[ ! -d "${ROOT_DIR}/devdocs/i18n/zh/docusaurus-plugin-content-docs/current" ] && mkdir "${ROOT_DIR}/devdocs/i18n/zh/docusaurus-plugin-content-docs/current"
+[ ! -d "${ROOT_DIR}/devdocs/i18n/ko/docusaurus-plugin-content-docs" ] && mkdir "${ROOT_DIR}/devdocs/i18n/ko/docusaurus-plugin-content-docs/"
+[ ! -d "${ROOT_DIR}/devdocs/i18n/ko/docusaurus-plugin-content-docs/current" ] && mkdir "${ROOT_DIR}/devdocs/i18n/ko/docusaurus-plugin-content-docs/current"
 
 echo "copying in static files, will not overwrite existing files"
 
-# copy over the main index file
-[ ! -f "${ROOT_DIR}/devdocs/eosdocs/api-listing.md" ] && cp "${SCRIPT_DIR}/../web/api-listing.md" "${ROOT_DIR}/devdocs/eosdocs/api-listing.md"
 # copy over the logo these directories created when docusarus site is build
 [ ! -f "${ROOT_DIR}/devdocs/static/img/eosn_logo.png" ] && cp "${SCRIPT_DIR}/../web/eosn_logo.png" "${ROOT_DIR}/devdocs/static/img/eosn_logo.png"
 SMALL_LOGO="cropped-EOS-Network-Foundation-Site-Icon-1-150x150.png"
 [ ! -f "${ROOT_DIR}/devdocs/static/img/${SMALL_LOGO}" ] && cp "${SCRIPT_DIR}/../web/${SMALL_LOGO}" "${ROOT_DIR}/devdocs/static/img/${SMALL_LOGO}"
+
+# copy over reference index file
+[ ! -f "${ROOT_DIR}/reference/index.html" ] && cp "${SCRIPT_DIR}/../web/reference-index.html" "${ROOT_DIR}/reference/index.html"
+
 # copy over the html with openapi documentation from mandel
 for i in ${SCRIPT_DIR}/../web/mandel-plugins/*.html
 do

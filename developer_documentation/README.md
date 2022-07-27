@@ -7,8 +7,6 @@ Scripts to generate Web Documentation Portal. Goal of this project is create a s
 
 In addition, tools are included to help maintain documentation in source repositories. An example is broken link crawlers, looking for bad links in .md files.
 
-
-
 ## Organization ##
 
 Overview of documentation folder structure:
@@ -69,6 +67,7 @@ After running there will be many files under `/path/to/webroot/devdocs/eosdocs` 
 ## Last Step ##
 The doc6s static html is nested under too many directory. Surface the data
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ```
 mv /path/to/webroot/devdocs/eosdocs/build/* /path/to/webroot
@@ -80,6 +79,12 @@ rm -rf /path/to/webroot/devdocs
 ```
 
 
+=======
+```
+mv /path/to/webroot/devdocs/eosdocs/build/* /path/to/webroot
+rm -rf /path/to/webroot/devdocs
+```
+>>>>>>> origin/main
 
 
 

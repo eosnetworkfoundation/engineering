@@ -68,10 +68,18 @@ After running there will be many files under `/path/to/webroot/devdocs/eosdocs` 
 
 ## Last Step ##
 The doc6s static html is nested under too many directory. Surface the data
+<<<<<<< HEAD
+=======
+```
+mv /path/to/webroot/devdocs/eosdocs/build/* /path/to/webroot
+rm -rf /path/to/webroot/devdocs
+>>>>>>> a3a795d (squash merge to main; generate docs on docs.eosnetwork.com)
 ```
 mv /path/to/webroot/devdocs/eosdocs/build/* /path/to/webroot
 rm -rf /path/to/webroot/devdocs
 ```
+
+
 
 
 

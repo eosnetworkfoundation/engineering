@@ -64,4 +64,4 @@ cd /path/to/webroot/devdocs
 npm run serve -- --port 39999
 ```
 
-You may need to rerun `yarn build` to generate the build directory. 
+You may need to rerun `yarn build` to generate the build directory.

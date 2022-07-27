@@ -13,7 +13,7 @@ sudo apt update
 ```
 
 ## Webserver ##
-Apache is used to serve static files. Docusaurus' `yarn build` will produce static files in a directy named `build`. Move these files to your web root directory to serve the files. 
+Apache is used to serve static files. Docusaurus' `yarn build` will produce static files in a directy named `build`. Move these files to your web root directory to serve the files.
 
 ## Docusaurus ##
 This is installed by the `initialize_repository.sh` script. The script runs this installation because the docusarus install creates a directy structure.

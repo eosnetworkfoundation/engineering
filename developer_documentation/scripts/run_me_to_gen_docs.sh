@@ -18,6 +18,7 @@ Help() {
   exit 1
 }
 
+# swich to http if certs not installed in destination domain
 FixProtocol() {
   FILE=$1
   PROTOCOL=${2:-https}
@@ -26,6 +27,24 @@ FixProtocol() {
     sed "s/https:\/\/docs.eosnetwork.com\//${PROTOCOL}:\/\/docs.eosnetwork.com\//g" $FILE > /tmp/fixprotocol.txt
     mv /tmp/fixprotocol.txt $FILE
   fi
+}
+
+# copy files, all global variables
+CopyFiles() {
+  # copy over api-listing
+  FixProtocol ${SCRIPT_DIR}/../web/api-listing.md $PROTOCOL
+  cp "${SCRIPT_DIR}/../web/api-listing.md" "${ROOT_DIR}/devdocs/eosdocs/api-listing.md"
+  # Client Index Page
+  FixProtocol ${SCRIPT_DIR}/../web/client-side/index.md $PROTOCOL
+  cp -r ${SCRIPT_DIR}/../web/client-side/* ${ROOT_DIR}/devdocs/eosdocs/client-side/
+  # Overwrite docusarus config
+  FixProtocol ${SCRIPT_DIR}/../config/docusaurus.config.js $PROTOCOL
+  cp "${SCRIPT_DIR}/../config/docusaurus.config.js" "${ROOT_DIR}/devdocs"
+  # Overwrite entry page for docusarus
+  cp "${SCRIPT_DIR}/../web/docusaurus/src/pages/index.tsx" "${ROOT_DIR}/devdocs/src/pages"
+  cp "${SCRIPT_DIR}/../web/docusaurus/src/components/HomepageFeature/index.tsx" "${ROOT_DIR}/devdocs/src/components/HomepageFeatures"
+  # Customer CSS for Doc6s
+  cp "${SCRIPT_DIR}/../web/docusaurus/src/css/custom.css" "${ROOT_DIR}/devdocs/src/css"
 }
 
 ########
@@ -50,7 +69,7 @@ while getopts "hud:" option; do
    esac
 done
 
-######
+##################################
 # main
 # check for parameters
 if [ -z $ROOT_DIR ]; then
@@ -59,30 +78,18 @@ fi
 # compute script dir for copying files from here to web directory
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-# HTML Header File
-HEADER_HTML_FILE="${SCRIPT_DIR}/../web/header.html"
-# MAIN Index page
-cp ${SCRIPT_DIR}/../web/index.md "${ROOT_DIR}/devdocs/eosdocs"
-# copy over api-listing
-FixProtocol ${SCRIPT_DIR}/../web/api-listing.md $PROTOCOL
-cp "${SCRIPT_DIR}/../web/api-listing.md" "${ROOT_DIR}/devdocs/eosdocs/api-listing.md"
-# Client Index Page
-FixProtocol ${SCRIPT_DIR}/../web/client-side/index.md $PROTOCOL
-cp ${SCRIPT_DIR}/../web/client-side/index.md "${ROOT_DIR}/devdocs/eosdocs/client-side/"
-# Overwrite docusarus config
-FixProtocol ${SCRIPT_DIR}/../config/docusaurus.config.js $PROTOCOL
-cp "${SCRIPT_DIR}/../config/docusaurus.config.js" "${ROOT_DIR}/devdocs"
-# Overwrite entry page for docusarus
-cp "${SCRIPT_DIR}/../web/docusaurus/src/pages/index.tsx" "${ROOT_DIR}/devdocs/src/pages"
-cp "${SCRIPT_DIR}/../web/docusaurus/src/components/HomepageFeature/index.tsx" "${ROOT_DIR}/devdocs/src/components/HomepageFeatures"
-# Customer CSS for Doc6s
-cp "${SCRIPT_DIR}/../web/docusaurus/src/css/custom.css" "${ROOT_DIR}/devdocs/src/css"
+# initialize copy over files
+CopyFiles
 
 ##################################
-# build out OpenAPI Docs from yaml
+# mandel repo
 source ${SCRIPT_DIR}/generate_mandeldocs.sh
+# build out OpenAPI Docs from yaml
 GenOpenAPI $ROOT_DIR $SCRIPT_DIR
+# build out developer-tool docs
 GenMandelToolDoc $ROOT_DIR $SCRIPT_DIR
+# build out glossary, guides, tutorials
+CopyTutorialsAndGuides $ROOT_DIR $SCRIPT_DIR
 # build out javadocs
 source ${SCRIPT_DIR}/generate_javadoc.sh
 GenJavaDoc $ROOT_DIR $SCRIPT_DIR
@@ -97,8 +104,8 @@ source ${SCRIPT_DIR}/generate_smartcontractdoc.sh
 GenSmartContractDoc $ROOT_DIR $SCRIPT_DIR $PROTOCOL
 GenCDTDoc $ROOT_DIR $SCRIPT_DIR
 # build Dune docs
-#source ${SCRIPT_DIR}/generate_dune.sh
-#GenDuneDoc $ROOT_DIR $SCRIPT_DIR
+source ${SCRIPT_DIR}/generate_dune.sh
+GenDuneDoc $ROOT_DIR $SCRIPT_DIR
 
 find ${ROOT_DIR}/devdocs/eosdocs/developer-tools -type f | xargs -I{} ${SCRIPT_DIR}/add_title.py {}
 find ${ROOT_DIR}/devdocs/eosdocs/client-side -type f | xargs -I{} ${SCRIPT_DIR}/add_title.py {}
@@ -111,3 +118,7 @@ cp -r ${SCRIPT_DIR}/../web/docusaurus/i18n ${ROOT_DIR}/devdocs/
 echo "NEXT STEPS *******"
 cd ${ROOT_DIR}/devdocs
 yarn build
+# bring everything together like production
+cp -r ${ROOT_DIR}/reference ${ROOT_DIR}/devdocs/build
+echo "COPY static files ${ROOT_DIR}/devdocs/build to webroot"
+echo "EXAMPLE cd ${ROOT_DIR}/devdocs/build; tar cvzf /tmp/docs.tgz *; sftp destination.host.com"

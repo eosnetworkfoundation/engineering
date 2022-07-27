@@ -119,17 +119,17 @@ def general_title(sub_directory, last_item, extensions):
 def client_side_title(sub_directory, last_item):
     value = ""
     if sub_directory == "swiftdocs" and last_item == "index.md":
-        return "eos Swift sdk Overview"
+        return "EOS Swift SDK"
     if sub_directory == "jsdocs" and last_item == "README.md":
-        return "eos js sdk"
+        return "EOS JS SDK"
     if sub_directory == "jsdocs" and last_item == "LICENSE.md":
-            return "eos js sdk License"
+            return "EOS JS SDK License"
     if sub_directory == "jsdocs" and last_item == "CONTRIBUTING.md":
             return "Contributing"
     if sub_directory == "jsdocs" and last_item == "modules.md":
-            return "eos js Exports"
+            return "EOS JS Exports"
     if sub_directory == "swiftdocs" and last_item == "README.md":
-        return "eos Swift Overview"
+        return "EOS Swift Overview"
     return value
 
 #### Global Method calculate the proper title for the doc
@@ -147,11 +147,11 @@ def calculate_value(file_name):
         # filename extensions
         extensions = "".join(p.suffixes)
         value = general_title(sub_directory, last_item, extensions)
+        # capitalize words
+        value = value.title()
 
     # remove leading numbers and spaces
-    value = value.lstrip('0123456789 ')
-    # return with capitalized words
-    return value.title()
+    return value.lstrip('0123456789 ')
 
 ##################### MAIN ##################
 meta_block = MetaBlock()

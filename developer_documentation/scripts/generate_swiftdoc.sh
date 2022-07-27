@@ -16,7 +16,7 @@ GenSwiftDoc() {
   # location to write docs
   DEST_DIR="${WEB_ROOT}/reference/swiftdocs"
   DEST_MD_DIR="${WEB_ROOT}/devdocs/eosdocs/client-side/swiftdocs"
-  API_REF_ME="${DEST_MD_DIR}/SwiftApiReference.md"
+  API_REF_ME="${DEST_MD_DIR}/Swift\ API\ Reference.md"
 
   # place to clone repo
   WORKING_DIR="${2}/../working"
@@ -52,8 +52,9 @@ GenSwiftDoc() {
   sed "s/Sources\/EosioSwift/${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/swiftdocs\/Sources\/EosioSwift/g" EXAMPLES.md > tmpA.md
   # collapse trailing slash in special case , slash added back next line
   sed 's/(README\.md\/#/(README.md#/g' tmpA.md > tmpB.md
-  sed 's/(README\.md/(\/eosdocs\/client-side\/swiftdocs\//g' tmpB.md > EXAMPLES.md
-  mv tmp.md EXAMPLES.md
+  sed 's/(README\.md/(\/eosdocs\/client-side\/swiftdocs\//g' tmpB.md > tmpC.md
+  # update title
+  sed 's/^# EOSIO SDK for Swift Examples/# Examples/' tmpC.md > EXAMPLES.md
   sed "s/Sources\/EosioSwift/${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/swiftdocs\/Sources\/EosioSwift/g" README.md > tmp2.md
   sed "s/EosioSwift\/EosioTransaction/${PROTOCOL}:\/\/docs.eosnetwork.com\/reference\/swiftdocs\/Sources\/EosioSwift\/EosioTransaction/g" tmp2.md > tmp3.md
   mv tmp3.md index.md

@@ -72,6 +72,10 @@ echo "creating directories and adding templates under ${ROOT_DIR}"
 [ ! -d "${ROOT_DIR}/devdocs/eosdocs/smart-contracts" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/smart-contracts"
 [ ! -d "${ROOT_DIR}/devdocs/eosdocs/client-side" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/client-side"
 [ ! -d "${ROOT_DIR}/devdocs/eosdocs/developer-tools" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/developer-tools"
+# directory for guides, glossary, and tutorial
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/general_info" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/general_info"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/general_info/protocol-guides" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/general_info/protocol-guides"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/tutorials" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/tutorials"
 # smart contracts
 [ ! -d "${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-cdt" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-cdt"
 [ ! -d "${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-contracts" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/smart-contracts/mandel-contracts"
@@ -81,7 +85,7 @@ echo "creating directories and adding templates under ${ROOT_DIR}"
 # developer tools
 [ ! -d "${ROOT_DIR}/devdocs/eosdocs/developer-tools" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/developer-tools"
 # dune repo
-[ ! -d "${ROOT_DIR}/devdocs/eosdocs/developer-tools/dune" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/developer-tools/dune"
+[ ! -d "${ROOT_DIR}/devdocs/eosdocs/developer-tools/DUNE" ] && mkdir "${ROOT_DIR}/devdocs/eosdocs/developer-tools/DUNE"
 
 # i18n directories zh and ko, english is the default and not included
 [ ! -d "${ROOT_DIR}/devdocs/i18n" ] && mkdir "${ROOT_DIR}/devdocs/i18n"

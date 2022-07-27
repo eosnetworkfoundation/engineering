@@ -10,7 +10,7 @@ GenOpenAPI() {
   fi
   WEB_ROOT=$1
   WORKING_DIR="${2}/../working"
-  GIT_URL="https://github.com/eosnetworkfoundation/mandel"
+  GIT_URL="-b documentation-fixes https://github.com/eosnetworkfoundation/mandel"
 
   # pull from github
   # create working dir if it does not exist
@@ -50,8 +50,26 @@ GenMandelToolDoc() {
   cd mandel
   mkdir markdown_out
   cp -R docs/* markdown_out/
-
-  find markdown_out -type f | xargs -I{} ./add_title.py {}
+  # general_info does not get copied to developer-tools
+  # will be copied over later in CopyTutorialsAndGuides()
+  rm -rf markdown_out/general_info
 
   cp -R markdown_out/* $DOC_ROOT
+}
+
+CopyTutorialsAndGuides() {
+  if [[ $# -lt 2 ]] ; then
+      echo 'NOT ENOUGH ARGS: specify web root,  specify script dir '
+      exit 1
+  fi
+  DOC_ROOT="${1}/devdocs/eosdocs/tutorials"
+  WORKING_DIR="${2}/../working"
+
+  # copy over glossary, guides, and tutorials
+  if [ -d ${WORKING_DIR}/mandel ]; then
+    cd ${WORKING_DIR}/mandel
+    cp tutorials/bios-boot-tutorial/README.md "${DOC_ROOT}/bios-boot-tutorial.md"
+    cp docs/general_info/glossary.md "${ROOT_DIR}/devdocs/eosdocs/general_info/"
+    cp docs/general_info/protocol-guides/* "${ROOT_DIR}/devdocs/eosdocs/general_info/protocol-guides/"
+  fi
 }

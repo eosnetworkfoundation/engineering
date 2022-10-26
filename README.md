@@ -3,4 +3,4 @@ This repository contains documentation managed by the ENF Engineering team. The 
 
 ### Index
 1. [Process](./process/) - development processes
-1. [Guides](./guides/) - development procedures, primarily focused on how to do specific things with specific tools
+1. [Tooling](./tooling/) - cheat sheets, links, procedures, and reference documents related to external tooling we use

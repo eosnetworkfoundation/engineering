@@ -46,7 +46,7 @@ This guide will walk you through provisioning a separate user account for work, 
 1. Change desktop background, layout, and color scheme to make it visually distinctive from your personal account.
     - For example, if you use a green desktop background and iconography in your personal account, consider a blue desktop background and iconography in your work account so you can immediately tell which user you are on.
 
-At this point, your personal account will exist at `[Ctrl] + [Alt] + [F7]` (TTY7), and your work account will exist at `[Ctrl] + [Alt] + [F8]` (TTY8). Try it.
+At this point, your personal account will exist at TTY7 (`[Ctrl] + [Alt] + [F7]`), and your work account will exist at TTY8 (`[Ctrl] + [Alt] + [F8]`). Try it.
 
 When you boot your computer, you will be on TTY7 by default (`[Ctrl] + [Alt] + [F7]`). Whatever account you login to here will be on TTY7. To log into the other user simultaneously, you will have to run the command from before to start a second LightDM session on TTY8.
 ```bash

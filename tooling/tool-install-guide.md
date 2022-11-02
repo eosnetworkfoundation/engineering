@@ -21,6 +21,8 @@ This guide will walk you through installing common engineering tools on your sys
     ```bash
     sudo apt-get install -y code
     ```
+    1. [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - VScode extension to view files in the context of their `git` history
+    1. [Dark+ Pure Black (OLED)](https://marketplace.visualstudio.com/items?itemName=ChadBaileyVh.oled-pure-black---vscode) - _Optional_ extension to make the existing Dark+ theme distributed with VScode use true black, for OLED displays
 1. [Zap](https://github.com/srevinsaju/zap) - a package manager for `*.AppImage` programs
     ```bash
     sudo wget https://github.com/srevinsaju/zap/releases/download/continuous/zap-amd64 -O /usr/local/bin/zap

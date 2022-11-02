@@ -19,7 +19,7 @@ This guide will walk you through installing common engineering tools on your sys
     ```
 1. [VScode](https://code.visualstudio.com) - GUI text editor
     ```bash
-    sudo apt-get install -y vim vim-common
+    sudo apt-get install -y code
     ```
 1. [Zap](https://github.com/srevinsaju/zap) - a package manager for `*.AppImage` programs
     ```bash

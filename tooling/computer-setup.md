@@ -19,7 +19,7 @@ Check out the [virtual machine setup guide](./vm-setup.md) for more information 
 You can have a work user account and a personal user account on the same physical computer. This is somewhat less secure than the other options because developers and engineers will need their work account to have administrator or super user permissions to do their job. However, this option is great because it allows you to use all the resources on your computer for work, makes it easy to switch back and forth, allows you to use your existing machines, enables you to work on _any_ machine you own, and provides a sufficient degree of separation.
 
 ### LightDM
-These instructions are written for Linux Mint (Debian-base), but should work for any Linux distribution using [LightDM](https://wiki.archlinux.org/title/LightDM) as the display manager.
+These instructions are written for Linux Mint (Debian-family, Ubunut-based), but should work for any Linux distribution using [LightDM](https://wiki.archlinux.org/title/LightDM) as the display manager.
 
 This guide will walk you through provisioning a separate user account for work, then logging into both _simultaneously_. Your personal account will exist on TTY7 (`[Ctrl] + [Alt] + [F7]`), and your work account will exist on TTY8 (`[Ctrl] + [Alt] + [F8]`). You can be logged into only one or the other, both simultaneously, have one or both locked, switch back and forth instantaneously, and run apps in both at the same time while still keeping them decently isolated. Programs running under either account will have access to their share of the entire computer's physical resources.
 

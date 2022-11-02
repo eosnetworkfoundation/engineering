@@ -41,7 +41,7 @@ This guide will walk you through provisioning a separate user account for work, 
     dm-tool switch-to-greeter
     ```
     This will drop you in a new LightDM session on TTY8 with a login screen.
-1. Login using the password you created in step 1. Linux should promt you to immediately change your password. If it doesn't, immediately change your password! See the warning above.
+1. Login using the password you created in step 1. Linux should prompt you to immediately change your password. If it doesn't, immediately change your password! See the warning above.
     - If you copied and pasted the command in step 1 verbatim, the password for your first login will be `Password1`.
 1. Change desktop background, layout, and color scheme to make it visually distinctive from your personal account.
     - For example, if you use a green desktop background and iconography in your personal account, consider a blue desktop background and iconography in your work account so you can immediately tell which user you are on.

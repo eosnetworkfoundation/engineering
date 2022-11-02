@@ -49,3 +49,5 @@ When you boot your computer, you will be on TTY7 by default (`[Ctrl] + [Alt] + [
 ```bash
 dm-tool switch-to-greeter
 ```
+
+Once you have a working solution for your work stuff, head to the [tool install guide](./tool-install-guide.md).

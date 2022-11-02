@@ -26,7 +26,7 @@ This guide will walk you through provisioning a separate user account for work, 
 1. Create a new user account in Linux that will show up on the login screen. Be sure to replace `$username` with the desired username. The author uses `zach` as his personal username, and chose `zach-enf` as his work username.
     ```bash
     # create a new user account with home folders, default shell, and default password
-    sudo useradd -m -p "$(perl -e 'print crypt("password", "salt")')" -s /bin/bash $username  # crypt(password, salt)
+    sudo useradd -m -p "$(perl -e 'print crypt("Password1", "salt")')" -s /bin/bash $username  # crypt(password, salt)
     # force the user to reset their password on next login
     sudo chage -d 0 username
     ```
@@ -42,6 +42,7 @@ This guide will walk you through provisioning a separate user account for work, 
     ```
     This will drop you in a new LightDM session on TTY8 with a login screen.
 1. Login using the password you created in step 1. Linux should promt you to immediately change your password. If it doesn't, immediately change your password! See the warning above.
+    - If you copied and pasted the command in step 1 verbatim, the password for your first login will be `Password1`.
 1. Change desktop background, layout, and color scheme to make it visually distinctive from your personal account.
     - For example, if you use a green desktop background and iconography in your personal account, consider a blue desktop background and iconography in your work account so you can immediately tell which user you are on.
 

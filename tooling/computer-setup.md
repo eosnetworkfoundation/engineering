@@ -30,6 +30,8 @@ This guide will walk you through provisioning a separate user account for work, 
     # force the user to reset their password on next login
     sudo chage -d 0 username
     ```
+    - ⚠️ **Warning** ⚠️  
+      DO NOT use the password you set here beyond logging in to the new user account for the first time (step 4 below)! The `perl` `crypt()` command uses [DES](https://en.wikipedia.org/wiki/Data_Encryption_Standard) to hash your password, a _50 year old_ algorithm [broken in 1998 by the Electronic Frontier Foundation](https://en.wikipedia.org/wiki/EFF_DES_cracker). It would be trivial for anyone who legitimately or illegitimately gains access to any account on your computer to obtain this password. The time, expense, and difficulty to break this is essentially zero. When you log into the new user account for the first time and change your password, Linux will use a secure, modern algorithm to protect it. For example, Linux Mint uses SHA-512 designed by the NSA, ratified by NIST, and which has no known practical attacks.
 1. Give the new user sudo permissions. This step is **_optional_**, but engineers will likely need this. You may consider doing this _after_ logging in for the first time and chaging your password.
     ```bash
     sudo usermod -a -G sudo $username
@@ -39,7 +41,7 @@ This guide will walk you through provisioning a separate user account for work, 
     dm-tool switch-to-greeter
     ```
     This will drop you in a new LightDM session on TTY8 with a login screen.
-1. Login using the password you created in step 1. Linux should promt you to immediately change your password.
+1. Login using the password you created in step 1. Linux should promt you to immediately change your password. If it doesn't, immediately change your password! See the warning above.
 1. Change desktop background, layout, and color scheme to make it visually distinctive from your personal account.
     - For example, if you use a green desktop background and iconography in your personal account, consider a blue desktop background and iconography in your work account so you can immediately tell which user you are on.
 

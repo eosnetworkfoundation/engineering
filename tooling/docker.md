@@ -1,3 +1,4 @@
+# docker
 [Docker](https://en.wikipedia.org/wiki/Docker_(software)) is a tool for [operating-system-level virtualization](https://en.wikipedia.org/wiki/OS-level_virtualization). This is more lightweight than a virtual machine because the guest operating system (called a container) shares some components with the host (often the kernel) and is minimalist in nature.
 
 ## Index

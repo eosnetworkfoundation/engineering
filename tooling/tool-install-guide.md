@@ -259,6 +259,12 @@ This guide will walk you through installing common engineering tools on your sys
     ```bash
     pip install git-imerge
     ```
+1. [bpkg](https://github.com/bpkg/bpkg) - BASH package manager
+    ```bash
+    curl -fsSL 'https://raw.githubusercontent.com/bpkg/bpkg/master/setup.sh' -o ~/Downloads/bpkg-install.sh
+    chmod +x ~/Downloads/bpkg-install.sh
+    ~/Downloads/bpkg-install.sh
+    ```
 1. Make a work directory.
     ```bash
     mkdir -p ~/Work

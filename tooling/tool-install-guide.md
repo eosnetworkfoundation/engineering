@@ -151,8 +151,8 @@ This guide will walk you through installing common engineering tools on your sys
                 ```bash
                 gpg --expert --full-generate-key
                 ```
-            1. Select `ECC (Sign Only)`.  
-               `10`, `[Enter]`
+            1. Select `ECC and ECC`.  
+               `9`, `[Enter]`
             1. Use an ed25519 key.  
                `1`, `[Enter]`
             1. Set your desired key expiration period.  

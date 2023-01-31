@@ -212,8 +212,6 @@ Here are some suggestions.
 	${$instance_name[method1]}
 	```
 
-Feedback is welcomed.
-
 ***
 **_Legal notice_:**  
 This document was generated in collaboration with the 2023-01-09 version of ChatGPT from OpenAI, a machine learning algorithm or weak artificial intelligence (AI). At the time of this writing, the [OpenAI terms of service agreement](https://openai.com/terms) §3.a states:

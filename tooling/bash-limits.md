@@ -36,7 +36,6 @@ Which languages specifically are acceptable in our repos or organization is a wh
 ## Red Flags
 Here are some suggestions.
 1. **Too Many Lines of Code**.
-	- Idk how many, but too many.
 1. **Complex mathematical calculations**, any math involving decimals, or any math where a third-party program is invoked because BASH cannot do it.
 1. **Complex string manipulation**, especially constructing files using repeated heredocs or `echo >>` statements, trying to construct JSON files without `jq`, trying to construct YAML files without `yq`, or constructing more complicated file types.
 1. **Changing the internal field separator (IFS)**.

@@ -51,7 +51,7 @@ Here are some suggestions.
 1. **Extremely Large Datasets**
 	- BASH does not have memory management or garbage collection.
 	- Variables and arguments have a size limit based on the memory of a machine, which is not necessarily deterministic.
-	- BASH utilities have their own limits. For example, `sed` can only operate on files of 4 MB or less.
+	- BASH utilities have their own limits. For example, `sed` on BSD and macOS can only operate on files of 4 MB or less.
 	- Working with large datasets in BASH can cause scripts to become extremely slow.
 	- "Real" languages allow an engineer to predict these limits and performance on large datasets much more accurately, even independent of a specific host machine's hardware.
 1. **Concurrency** - use a "real" language for multithreading or parallelization.

@@ -1,6 +1,11 @@
 # BASH Limits
 What are good indicators your BASH script has become too complex and you should stop to re-implement your system in a "real" language?
 
+### Index
+1. ["Real" Languages](#real-languages)
+    1. [Examples](#examples)
+1. [Red Flags](#red-flags)
+
 ## "Real" Languages
 BASH is a real language, a Turing-complete, interpreted scripting language. This is why "real" is in quotes throughout this document.
 

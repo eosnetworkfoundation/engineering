@@ -5,6 +5,7 @@ What are good indicators your BASH script has become too complex and you should 
 1. ["Real" Languages](#real-languages)
     1. [Examples](#examples)
 1. [Red Flags](#red-flags)
+1. [Process](#process)
 
 ## "Real" Languages
 BASH is a real language, a Turing-complete, interpreted scripting language. This is why "real" is in quotes throughout this document.
@@ -216,6 +217,9 @@ Here are some suggestions.
 	echo ${$instance_name[property1]}
 	${$instance_name[method1]}
 	```
+
+## Process
+At the 2023-01-24 ENF Engineering Weekly Meeting, the team decided that these indicators are reasonable and they should be used as guidelines for engineers to stop writing in BASH, but it is not a mandate. If two or more engineers feel a BASH system has reached this level of complexity and there is contention about re-implementing it in a "real" language, they can escalate it to the Engineering team for discussion and to make a formal decision one way or the other.
 
 ***
 **_Legal notice_:**  

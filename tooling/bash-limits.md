@@ -56,7 +56,7 @@ Here are some suggestions.
 	- "Real" languages allow an engineer to predict these limits and performance on large datasets much more accurately, even independent of a specific host machine's hardware.
 1. **Concurrency** - use a "real" language for multithreading or parallelization.
 1. **Functional Programming Concepts**
-    > When you start implementing or approximating functional programming concepts such as recursion, currying, partial application, etc. which are not natively supported by BASH, it can become increasingly difficult to implement, test and understand the code.
+    > When you start implementing or approximating functional programming concepts such as recursion, currying, partial application, etc. which are not natively supported by BASH, it can become increasingly difficult to implement, test and understand the code. BASH is better suited for simple scripts and system administration tasks, and it's recommended to use a more suitable language for more complex programming needs.
     1. **Recursion** - functions which call themselves.
         > Recursion can be a powerful tool, but it can also be memory-intensive, as each recursive call creates a new function call frame on the call stack. In addition, recursion can be less efficient than an iterative solution for large inputs and can cause a stack overflow error.
         ```bash

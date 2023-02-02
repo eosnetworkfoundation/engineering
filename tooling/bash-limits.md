@@ -154,7 +154,7 @@ Here are some suggestions.
             add_5=$(curried_add 5)
             $add_5 3  # 8
             ```
-    1. **Partial Application** - where a function is called with fewer arguments than it is defined to take, resulting in a new function that takes the remaining arguments.
+    1. **Partial Application** - where a function is called with fewer arguments than it is defined to take, returning a new function that takes the remaining arguments.
         - Example in Haskell.
             ```haskell
             add :: Int -> Int -> Int

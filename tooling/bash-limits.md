@@ -48,14 +48,14 @@ Here are some suggestions.
 	- Backoff or Automatic Retries
 	- Caching
 1. **Input Validation** - if you are parsing untrusted input, use a "real" language...especially if these inputs are eventually consumed by `eval`, `exec`, `command`, or subshells with backticks (`` ` ` ``) or the more modern `$()` syntax.
-1. **Extremely Large Datasets**
+1. **Extremely Large Datasets**.
 	- BASH does not have memory management or garbage collection.
 	- Variables and arguments have a size limit based on the memory of a machine, which is not necessarily deterministic.
 	- BASH utilities have their own limits. For example, `sed` on BSD and macOS can only operate on files of 4 MB or less.
 	- Working with large datasets in BASH can cause scripts to become extremely slow.
 	- "Real" languages allow an engineer to predict these limits and performance on large datasets much more accurately, even independent of a specific host machine's hardware.
 1. **Concurrency** - use a "real" language for multithreading or parallelization.
-1. **Functional Programming Concepts**
+1. **Functional Programming Concepts**.
     > When you start implementing or approximating functional programming concepts such as recursion, currying, partial application, etc. which are not natively supported by BASH, it can become increasingly difficult to implement, test and understand the code. BASH is better suited for simple scripts and system administration tasks, and it's recommended to use a more suitable language for more complex programming needs.
     1. **Recursion** - functions which call themselves.
         > Recursion can be a powerful tool, but it can also be memory-intensive, as each recursive call creates a new function call frame on the call stack. In addition, recursion can be less efficient than an iterative solution for large inputs and can cause a stack overflow error.

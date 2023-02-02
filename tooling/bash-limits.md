@@ -198,7 +198,8 @@ Here are some suggestions.
             add_5=$(partial_add 5)
             $add_5 3  # 8
             ```
-1. **Object-Oriented Concepts** - if you are trying to implement object-oriented concepts, use a "real" language. For example:
+1. **Object-Oriented Concepts** - if you are trying to implement object-oriented concepts, use a "real" language.
+    > BASH was not designed to be an object-oriented language, and implementing object-oriented concepts in BASH is difficult, convoluted, and often error-prone. This is because BASH is a shell scripting language meant primarily for running commands and creating simple scripts, rather than a high-level programming language with features for complex logic and data structures. When object-oriented concepts are attempted in BASH, it usually results in verbose and less readable code, which can be harder to maintain and less secure. In such cases, it is often better to use a "real" programming language that was designed with these features in mind.
 	- Using global variables to simulate object properties.
 	- Using functions to simulate object methods.
 	- Using associative arrays to simulate object properties and methods.

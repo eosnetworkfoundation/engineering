@@ -55,144 +55,145 @@ Here are some suggestions.
 	- Working with large datasets in BASH can cause scripts to become extremely slow.
 	- "Real" languages allow an engineer to predict these limits and performance on large datasets much more accurately, even independent of a specific host machine's hardware.
 1. **Concurrency** - use a "real" language for multithreading or parallelization.
-1. **Recursion** - functions which call themselves.
-	```bash
-	function factorial {
-		if [[ $1 -eq 1 ]]; then
-			echo 1
-		else
-			local result=$(( $1 * $(factorial $(( $1 - 1 ))) ))
-			echo $result
-		fi
-	}
+1. **Functional Programming Concepts**
+    1. **Recursion** - functions which call themselves.
+        ```bash
+        function factorial {
+            if [[ $1 -eq 1 ]]; then
+                echo 1
+            else
+                local result=$(( $1 * $(factorial $(( $1 - 1 ))) ))
+                echo $result
+            fi
+        }
 
-	factorial 5  # 120
-	```
-1. **Higher-Order Functions** - functions which take a function as an argument or return a function as a result.
-	- In BASH, you would be passing around names of functions.
-	```bash
-	function add {
-		echo $(( $1 + $2 ))
-	}
+        factorial 5  # 120
+        ```
+    1. **Higher-Order Functions** - functions which take a function as an argument or return a function as a result.
+        - In BASH, you would be passing around names of functions.
+        ```bash
+        function add {
+            echo $(( $1 + $2 ))
+        }
 
-	function multiply {
-		echo $(( $1 * $2 ))
-	}
+        function multiply {
+            echo $(( $1 * $2 ))
+        }
 
-	function calculate {
-		local operation=$1
-		shift
-		$operation $@
-	}
+        function calculate {
+            local operation=$1
+            shift
+            $operation $@
+        }
 
-	calculate add 5 3  # 8
-	calculate multiply 5 3  # 15
-	```
-1. **Currying** - where your function has completely different behavior depending on how many arguments are passed, a type of polymorphism.
-	- Example in Haskell.
-		```haskell
-		add :: Int -> Int -> Int
-		add x y = x + y
+        calculate add 5 3  # 8
+        calculate multiply 5 3  # 15
+        ```
+    1. **Currying** - where your function has completely different behavior depending on how many arguments are passed, a type of polymorphism.
+        - Example in Haskell.
+            ```haskell
+            add :: Int -> Int -> Int
+            add x y = x + y
 
-		add5 :: Int -> Int
-		add5 = add 5
+            add5 :: Int -> Int
+            add5 = add 5
 
-		main = print (add5 3)  -- 8
-		```
-	- Example in JavaScript.
-		```js
-		const add = x => y => x + y;
-		const add5 = add(5);
-		console.log(add5(3));  // 8
-		```
-	- Example in Python.
-		```python
-		from functools import partial
+            main = print (add5 3)  -- 8
+            ```
+        - Example in JavaScript.
+            ```js
+            const add = x => y => x + y;
+            const add5 = add(5);
+            console.log(add5(3));  // 8
+            ```
+        - Example in Python.
+            ```python
+            from functools import partial
 
-		def add(a, b):
-			return a + b
+            def add(a, b):
+                return a + b
 
-		add_5 = partial(add, 5)
+            add_5 = partial(add, 5)
 
-		print(add_5(3))  # 8
-		```
-	- Another example in Pythin using closure and higher-order functions instead of partial application.
-		```python
-		def curry(f):
-			def curried(*args, **kwargs):
-				if len(args) + len(kwargs) >= f.__code__.co_argcount:
-					return f(*args, **kwargs)
-				return lambda *args2, **kwargs2: curried(*(args + args2), **{**kwargs, **kwargs2})
-			return curried
+            print(add_5(3))  # 8
+            ```
+        - Another example in Pythin using closure and higher-order functions instead of partial application.
+            ```python
+            def curry(f):
+                def curried(*args, **kwargs):
+                    if len(args) + len(kwargs) >= f.__code__.co_argcount:
+                        return f(*args, **kwargs)
+                    return lambda *args2, **kwargs2: curried(*(args + args2), **{**kwargs, **kwargs2})
+                return curried
 
-		@curry
-		def add(x, y):
-			return x + y
+            @curry
+            def add(x, y):
+                return x + y
 
-		add5 = add(5)
+            add5 = add(5)
 
-		print(add5(3))  # 8
-		```
-	- Example attempting this in BASH.
-		```bash
-		function add {
-			local x=$1
-			local y=$2
-			echo $((x + y))
-		}
+            print(add5(3))  # 8
+            ```
+        - Example attempting this in BASH.
+            ```bash
+            function add {
+                local x=$1
+                local y=$2
+                echo $((x + y))
+            }
 
-		function curried_add {
-			local x=$1
-			if [[ $# -eq 1 ]]; then
-				echo "add $x \$1"
-			else
-				echo $(add $x $2)
-			fi
-		}
+            function curried_add {
+                local x=$1
+                if [[ $# -eq 1 ]]; then
+                    echo "add $x \$1"
+                else
+                    echo $(add $x $2)
+                fi
+            }
 
-		add_5=$(curried_add 5)
-		$add_5 3  # 8
-		```
-1. **Partial Application** - where a function is called with fewer arguments than it is defined to take, resulting in a new function that takes the remaining arguments.
-	- Example in Haskell.
-		```haskell
-		add :: Int -> Int -> Int
-		add x y = x + y
+            add_5=$(curried_add 5)
+            $add_5 3  # 8
+            ```
+    1. **Partial Application** - where a function is called with fewer arguments than it is defined to take, resulting in a new function that takes the remaining arguments.
+        - Example in Haskell.
+            ```haskell
+            add :: Int -> Int -> Int
+            add x y = x + y
 
-		add5 :: Int -> Int
-		add5 = add 5
+            add5 :: Int -> Int
+            add5 = add 5
 
-		main = print (add5 3)  -- 8
-		```
-	- Example in JavaScript.
-		```js
-		const add = (x, y) => x + y;
-		const add5 = add.bind(null, 5);
-		console.log(add5(3));  // 8
-		```
-	- Example in Python.
-		```python
-		def add(x, y):
-			return x + y
+            main = print (add5 3)  -- 8
+            ```
+        - Example in JavaScript.
+            ```js
+            const add = (x, y) => x + y;
+            const add5 = add.bind(null, 5);
+            console.log(add5(3));  // 8
+            ```
+        - Example in Python.
+            ```python
+            def add(x, y):
+                return x + y
 
-		add5 = lambda y: add(5, y)
+            add5 = lambda y: add(5, y)
 
-		print(add5(3))  # 8
-		```
-	- Example attempting this in BASH.
-		```bash
-		function add {
-			echo $(( $1 + $2 ))
-		}
+            print(add5(3))  # 8
+            ```
+        - Example attempting this in BASH.
+            ```bash
+            function add {
+                echo $(( $1 + $2 ))
+            }
 
-		function partial_add {
-			local x=$1
-			echo "add $x \$1"
-		}
+            function partial_add {
+                local x=$1
+                echo "add $x \$1"
+            }
 
-		add_5=$(partial_add 5)
-		$add_5 3  # 8
-		```
+            add_5=$(partial_add 5)
+            $add_5 3  # 8
+            ```
 1. **Object-Oriented Concepts** - if you are trying to implement object-oriented concepts, use a "real" language. For example:
 	- Using global variables to simulate object properties.
 	- Using functions to simulate object methods.

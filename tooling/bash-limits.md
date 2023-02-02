@@ -72,6 +72,7 @@ Here are some suggestions.
         factorial 5  # 120
         ```
     1. **Higher-Order Functions** - functions which take a function as an argument or return a function as a result.
+        > Higher-order functions require a more sophisticated type system and language constructs than what BASH provides, making the implementation more complex, difficult to understand and maintain.
         - In BASH, you would be passing around names of functions.
         ```bash
         function add {

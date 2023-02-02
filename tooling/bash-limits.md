@@ -210,6 +210,7 @@ Here are some suggestions.
             add_5=$(partial_add 5)
             $add_5 3  # 8
             ```
+            > It's important to note that this is not a proper implementation of partial application. The returned string is not a function, it's just a string, and it's not a secure way to run commands. Additionally, BASH does not have closures, so it's not possible to have a function that closes over variables and maintains the state of the variable as it was at the time the outer function returned.
 1. **Object-Oriented Concepts** - if you are trying to implement object-oriented concepts, use a "real" language.
     > BASH was not designed to be an object-oriented language, and implementing object-oriented concepts in BASH is difficult, convoluted, and often error-prone. This is because BASH is a shell scripting language meant primarily for running commands and creating simple scripts, rather than a high-level programming language with features for complex logic and data structures. When object-oriented concepts are attempted in BASH, it usually results in verbose and less readable code, which can be harder to maintain and less secure. In such cases, it is often better to use a "real" programming language that was designed with these features in mind.
 	- Using global variables to simulate object properties.

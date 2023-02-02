@@ -155,6 +155,7 @@ Here are some suggestions.
             $add_5 3  # 8
             ```
     1. **Partial Application** - where a function is called with fewer arguments than it is defined to take, returning a new function that takes the remaining arguments.
+        > Stated another way, partial application is where you have some function 𝑓 and you derive some other function 𝑓' that is called with fewer arguments, then 𝑓' turns around and invokes 𝑓 with all arguments. Partial application is a functional concept distinct from default parameter values. There is nothing wrong with using default values for function parameters.
         - Example in Haskell.
             ```haskell
             add :: Int -> Int -> Int

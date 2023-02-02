@@ -58,6 +58,7 @@ Here are some suggestions.
 1. **Functional Programming Concepts**
     > When you start implementing or approximating functional programming concepts such as recursion, currying, partial application, etc. which are not natively supported by BASH, it can become increasingly difficult to implement, test and understand the code.
     1. **Recursion** - functions which call themselves.
+        > Recursion can be a powerful tool, but it can also be memory-intensive, as each recursive call creates a new function call frame on the call stack. In addition, recursion can be less efficient than an iterative solution for large inputs and can cause a stack overflow error.
         ```bash
         function factorial {
             if [[ $1 -eq 1 ]]; then

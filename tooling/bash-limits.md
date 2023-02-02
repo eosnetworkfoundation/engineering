@@ -37,6 +37,7 @@ Which languages specifically are acceptable in our repos or organization is a wh
 Here are some suggestions.
 1. **Too Many Lines of Code**.
 1. **Complex mathematical calculations**.
+    > BASH was designed to be a shell scripting language and, while it can perform basic arithmetic operations, it is not well suited for complex mathematical computations. BASH has limited support for floating-point arithmetic, and it is prone to loss of precision and rounding errors. Additionally, the syntax for performing mathematical operations in BASH is less convenient and less expressive than in other programming languages that were specifically designed for numerical computations. For these reasons, it is generally recommended to use a specialized language for complex mathematical operations.
     - Floating point (decimal) operations.
     - Math operations invoking tools like `bc` or `dc` where the output must be known beforehand to correctly configure the tool.
         ```bash

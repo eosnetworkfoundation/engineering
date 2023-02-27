@@ -44,6 +44,12 @@ There are (2) exceptions to this selection process:
 1. Executive Decree - @wanderingbort reserves the right to promote a topic to the live discussion regardless of its :+1: count.
 2. Volunteer Mediator - as described below if an issue has a volunteer mediator it will be prioritized above issues without.
 
+#### Summary
+The resulting priority will be:
+1. [Issues with "Executive Decree" ordered by vote](https://github.com/eosnetworkfoundation/engineering/issues?q=is%3Aopen+is%3Aissue+assignee%3Awanderingbort+label%3A%22decision+%F0%9F%A4%94%22+sort%3Areactions-%2B1-desc)
+2. [Issues with mediators ordered by vote](https://github.com/eosnetworkfoundation/engineering/issues?q=is%3Aopen+is%3Aissue+assignee%3A%2A+label%3A%22decision+%F0%9F%A4%94%22+sort%3Areactions-%2B1-desc)
+3. [Issues without mediators orderd by vote](https://github.com/eosnetworkfoundation/engineering/issues?q=is%3Aopen+is%3Aissue+no%3Aassignee+label%3A%22decision+%F0%9F%A4%94%22+sort%3Areactions-%2B1-desc+)
+
 ### Volunteer Mediator
 In an effort to make decisions more efficiently and provide an opportunity for team members who excel at facilitating decisions to provide a team-wide benefit, 
 Volunteer Mediators can elect to assign any open issue to themselves.

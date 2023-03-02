@@ -9,7 +9,10 @@
 ## Version API
 
 ### `Problem Statement`
-The current API has a version embedded inside the URL. Most clients have hardcoded the version id and it would be difficult for them to switch to the latest version. [See this wharf example](https://github.com/wharfkit/transact-plugin-resource-provider/blob/0c5744289d45c71812309053cc19993bec52d1f4/src/index.ts#L142)
+The current API has a version embedded inside the URL. Most clients have hardcoded the version id and it would be difficult for them to switch to the latest version.
+- [Eosio Core needs a new release](https://github.com/greymass/eosio-core/tree/master/src/api/v1)
+- Developers needs to pick up the new eosio-core release
+- Developers need to go through all their calls and change `client.v1.` to `client.v2`
 
 ### `Solution Overview`
 Move the version string to a URL parameter. Leaving off the version will default to the latest API. Clients will receive an HTTP error if they requested an API version which is not supported.
@@ -17,7 +20,7 @@ Move the version string to a URL parameter. Leaving off the version will default
 ### `Implementation Options`
 1. Place Version Inside the URL Path, mandatory not optional
    - http://example.com/v1/service/info
-2. **Recommended** Version is Request Parameter to URL, default to latest API  
+2. ![#Rec](https://placehold.co/120x50/c5f015/000000/png?text=Recommended) Version is Request Parameter to URL, default to latest API  
    - http://example.com/service/into?eosapi=v1
 
 Recommend `#2`. Leaving off the URL parameter, clients will be automatically upgraded to the latest version. It is easier for clients to assemble URL parameters. The parameter name adds additional context for the client. URL parameters as name value pairs are easier to parse on the service side. Versions can be any string, and by tradition URL encoded values are acceptable in parameter values.
@@ -27,7 +30,7 @@ Recommend `#2`. Leaving off the URL parameter, clients will be automatically upg
 *Question: when was the last time we changed the API version?*
 
 Error codes for unsupported versions
-1. **Recommended** 400 - simple, client error, return error message
+1. ![#Rec](https://placehold.co/120x50/c5f015/000000/png?text=Recommended) 400 - simple, client error, return error message
 2. 301 - redirect to correct version
 
 Recommend 400 `#1`. Simple and effective. Redirecting clients to proper URL doesn't mean clients are ready to handle the updated version. A redirect may cause other issues and push clients into an undefined or unexpected state.
@@ -47,7 +50,7 @@ JSON schema's need their own version. We assume each distinct URL has one JSON s
 ### `Implementation Options`
 1. Place the Schema Version inside a customer HTTP Header
 - X-EOS-Schema-Version: greylist-1.0.0
-2. **Recommended** Wrap the JSON in the Schema Name
+2. ![#Rec](https://placehold.co/120x50/c5f015/000000/png?text=Recommended) Wrap the JSON in the Schema Name
 - `greylist{}`
 - `greylistwithstrikelimit{}`
 3. Embed Schema into URL

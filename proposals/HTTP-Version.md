@@ -20,7 +20,7 @@ Move the version string to a URL parameter. Leaving off the version will default
 ### `Implementation Options`
 1. Place Version Inside the URL Path, mandatory not optional
    - http://example.com/v1/service/info
-2. ![#Rec](https://placehold.co/120x50/c5f015/000000/png?text=Recommended) Version is Request Parameter to URL, default to latest API  
+2. ![#Rec](https://placehold.co/120x25/c5f015/000000/png?text=Recommended) Version is Request Parameter to URL, default to latest API  
    - http://example.com/service/into?eosapi=v1
 
 Recommend `#2`. Leaving off the URL parameter, clients will be automatically upgraded to the latest version. It is easier for clients to assemble URL parameters. The parameter name adds additional context for the client. URL parameters as name value pairs are easier to parse on the service side. Versions can be any string, and by tradition URL encoded values are acceptable in parameter values.
@@ -30,7 +30,7 @@ Recommend `#2`. Leaving off the URL parameter, clients will be automatically upg
 *Question: when was the last time we changed the API version?*
 
 Error codes for unsupported versions
-1. ![#Rec](https://placehold.co/120x50/c5f015/000000/png?text=Recommended) 400 - simple, client error, return error message
+1. ![#Rec](https://placehold.co/120x25/c5f015/000000/png?text=Recommended) 400 - simple, client error, return error message
 2. 301 - redirect to correct version
 
 Recommend 400 `#1`. Simple and effective. Redirecting clients to proper URL doesn't mean clients are ready to handle the updated version. A redirect may cause other issues and push clients into an undefined or unexpected state.
@@ -48,12 +48,12 @@ Changes may occur at the content and schema level, below the API. For example th
 JSON schema's need their own version. We assume each distinct URL has one JSON schema. In addition, for simplicity we assume the client understands the requirements for the schema they are utilizing; therefore there is no schema negotiation between client and server.
 
 ### `Implementation Options`
-1. Place the Schema Version inside a customer HTTP Header
+1. Place the Schema Name inside a customer HTTP Header
 - X-EOS-Schema-Version: greylist-1.0.0
-2. ![#Rec](https://placehold.co/120x50/c5f015/000000/png?text=Recommended) Wrap the JSON in the Schema Name
+2. ![#Rec](https://placehold.co/120x25/c5f015/000000/png?text=Recommended) Wrap the JSON in the Schema Name
 - `greylist{}`
 - `greylistwithstrikelimit{}`
-3. Embed Schema into URL
+3. Embed Schema Name into URL
 - HTTP PUT https://example.com/update/config?greylist-1.0.0
 
 Recommend `#2` wrap JSON with Schema Name. The Schema name would only change when mandatory fields were added/removed, or there was a significant change in behavior. Mandatory field changes are not common, and the schema name would be fairly stable. Optional field changes should be both backwards and forwards compatible. For that reason, optional field changes would keep the same schema name. `#2` is simple, effective, and human readable.
@@ -61,14 +61,14 @@ Recommend `#2` wrap JSON with Schema Name. The Schema name would only change whe
 Some consideration should be given to the style of the version name. This author prefers human readable names, and likes to stay away from embedding version numbers into schema names.
 
 Option `#1` custom headers aren't part of most APIs. It would be difficult to onboard new clients. Consider the burden of calling URLs on the command line with HTTP headers.
-Option `#3` is a legit option when URL and Schema have a 1-to-1 relationship. However, this gets confusing when both API Version and Schema version are both included. Option `#3` doesn't allow multiple schemas in the same URL.
+Option `#3` is a legit option when URL and Schema have a 1-to-1 relationship. However, this gets confusing when both API Version and Schema version are both included. Option `#3` doesn't cleanly support multiple schemas in the same URL.
 
 ## Serialization Version
 
 ### `Problem Statement`
-This is a nice to address problem; it is not a must solve problem. The key take away, if protocol serialization options are supported don't use the [`Accept` Header for content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation#the_accept_header). The `Accept` Header is used for well know MIME types.
+This is a nice to address problem; it is not a must solve problem. The key take away, if protocol serialization options are supported do not use the [`Accept` Header for content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation#the_accept_header). The `Accept` Header is used for well know MIME types.
 
-Protocol for serialization and deserialization is a separate layer of functionality. It is separate from the HTTP API, and separate from the schema. Yet serialization and deserialization may change in a way that breaks previous client implementations. Or we may want to offer multi types of serialization across our API. Admittedly serialization is a low level part of the protocol, and we don't want every API call to specify a serialization protocol.
+Protocol for serialization and deserialization is a separate layer of functionality. It is separate from the HTTP API, and separate from the schema. Yet serialization and deserialization may change in a way that breaks previous client implementations. Or we may want to offer multiple types of serialization across our API. Admittedly serialization is a low level part of the protocol, and we don't want every API call to specify a serialization protocol.
 
 ### `Solution Overview`
 Strike the right balance.

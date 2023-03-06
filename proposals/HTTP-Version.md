@@ -71,7 +71,7 @@ This is a nice to address problem; it is not a must solve problem. The key take 
 Protocol for serialization and deserialization is a separate layer of functionality. It is separate from the HTTP API, and separate from the schema. Yet serialization and deserialization may change in a way that breaks previous client implementations. Or we may want to offer multiple types of serialization across our API. Admittedly serialization is a low level part of the protocol, and we don't want every API call to specify a serialization protocol.
 
 ### `Solution Overview`
-Strike the right balance. The default serialization protocol is set API wide. Some API endpoints, specific URL paths, may be configured to change their serialization protocol. Changing the serialization protocol requires updating configuration settings per instance. Idailly serialization protocol changes could be made dynamically while the service was running.  
+Strike the right balance. The default serialization protocol is set API wide. Some API endpoints, specific URL paths, may be configured to change their serialization protocol. Changing the serialization protocol requires updating configuration settings per instance. Ideally serialization protocol changes could be made dynamically while the service was running.  
 
 ### `Implementation`
 For numbers `1` and `2` below tightly couple the serialization protocol to the HTTP API Version.

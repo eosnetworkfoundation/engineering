@@ -4,7 +4,7 @@
 
 **Cardinal release** : A release that impacts interfaces, APIs or consensus (host function additions, new account system, etc).
 
-**Marginal release** : A release that adds new functionality in an additive manner that does not break any pre-existing interfaces, APIs or impact consensus.
+**Marginal release** : A release that adds new functionality in an additive manner that impact consensus or have major impacts to downstream users (i.e. ship protocol changes, etc.).
 
 ---
 

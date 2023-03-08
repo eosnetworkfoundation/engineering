@@ -9,6 +9,8 @@
 ## Version API
 
 ### `Problem Statement`
+The HTTP API should be used for the URL organization, standardization of return codes, and standardization for rarely used methods like PATCH. The relationship between the HTTP API and the json schema is limited. It is true to say the HTTP API requires the schema to have a version.
+
 The current API has a version embedded inside the URL. Most clients have hardcoded the version id and it would be difficult for them to switch to the latest version.
 - [Eosio Core needs a new release](https://github.com/greymass/eosio-core/tree/master/src/api/v1)
 - Developers needs to pick up the new eosio-core release
@@ -44,24 +46,38 @@ Note: Options not considered. Versions in Custom HTTP Header, or Version in Acce
 ### `Problem Statement`
 Changes may occur at the content and schema level, below the API. For example the JSON for greylist accounts may add an additional mandatory field, while the URL path, HTTP Methods, HTTP Header, and return code remain the same. We don't want to version the entire API for this isolated change.
 
+Types of changes
+- Mandatory changes, adding or removing a field uses as a key, or a significant behavior change
+- Optional changes, optional parameters provided or returned
+We tend to care only about the Mandatory changes. Clients do not validate schemas. Mandatory changes are rare, and they tend to have a clear purpose. Clients do not validate schemas. Mandatory changes are rare, and they tend to have a clear purpose.
+
 ### `Solution Overview`
 JSON schema's need their own version. We assume each distinct URL has one JSON schema. In addition, for simplicity we assume the client understands the requirements for the schema they are utilizing; therefore there is no schema negotiation between client and server.
+
+### `Survey of Usage` circa 2023
+Blockchains use jsonrpc as for the schema version. Across ETH, AVAX, and NEAR they all use the [jsonrpc spec](https://www.jsonrpc.org/specification). This indicates the method name in the URL is changing, and the jsonrpc field isn't used.
 
 ### `Implementation Options`
 1. Place the Schema Name inside a customer HTTP Header
 - X-EOS-Schema-Version: greylist-1.0.0
-2. ![#Rec](https://placehold.co/120x25/c5f015/000000/png?text=Recommended) Wrap the JSON in the Schema Name
+2a. ![#Rec](https://placehold.co/120x25/c5f015/000000/png?text=Recommended) Wrap the JSON in the Schema Name
 - `greylist{}`
 - `greylistwithstrikelimit{}`
-3. Embed Schema Name into URL
-- HTTP PUT https://example.com/update/config?greylist-1.0.0
+2b. Follow [JSON-RPC](https://www.jsonrpc.org/specification) and put `method` name in the schema
+3. Overload Method Name in URL with Schema Name
+- HTTP PUT https://example.com/client/config
+- HTTP PUT https://example.com/client/update_greylist
+- HTTP PUT https://example.com/client/update_greylist_with_strike_limit
 
-Recommend `#2` wrap JSON with Schema Name. The Schema name would only change when mandatory fields were added/removed, or there was a significant change in behavior. Mandatory field changes are not common, and the schema name would be fairly stable. Optional field changes should be both backwards and forwards compatible. For that reason, optional field changes would keep the same schema name. `#2` is simple, effective, and human readable.
+Recommend `#2a` wrap JSON with Schema Name. The Schema name would only change when mandatory fields were added/removed, or there was a significant change in behavior. Mandatory field changes are not common, and the schema name would be fairly stable. Optional field changes should be both backwards and forwards compatible. For that reason, optional field changes would keep the same schema name. `#2a` is simple, effective, and human readable.
+
+Using JSON-RPC `#2b` is less obvious. The `method` name is at the same level as other less important fields.
 
 Some consideration should be given to the style of the version name. This author prefers human readable names, and likes to stay away from embedding version numbers into schema names.
 
 Option `#1` custom headers aren't part of most APIs. It would be difficult to onboard new clients. Consider the burden of calling URLs on the command line with HTTP headers.
-Option `#3` is a legit option when URL and Schema have a 1-to-1 relationship. However, this gets confusing when both API Version and Schema version are both included. Option `#3` doesn't cleanly support multiple schemas in the same URL.
+
+Option `#3` is a legit option when URL and Schema have a 1-to-1 relationship. Option `#3` doesn't support multiple schemas in the same URL. In addition, `#3` can pollute the URL namespace with bad, poorly named URLs, as each new schema or experimental behavior requires a new URL. Putting the Schema Version or Schema Name inside the JSON payload is easier for rapid development or trying out features.
 
 ## Serialization Version
 

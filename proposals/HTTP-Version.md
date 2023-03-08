@@ -56,22 +56,22 @@ Protocol for serialization and deserialization is a separate layer of functional
 Strike the right balance. The default serialization protocol is set API wide. Some API endpoints, specific URL paths, may be configured to change their serialization protocol. Changing the serialization protocol requires updating configuration settings per instance. Ideally serialization protocol changes could be made dynamically while the service was running.  
 
 ### `Implementation`
-For numbers `1` and `2` below tightly couple the serialization protocol to the HTTP API Version.
-
-1. Peer to Peer communication must be interoperable. If there is a choice on serialization protocols, it must be implicit or it must be negotiated between peers
-2. URL organization for specific content types
-- For example Raw Block and Raw Block headers just need their own URL. That URL implicitly provides byte output.
+Items numbers for ease of reference
+1. Peer to Peer communication must be interoperable. Best to enforce a serialization protocol for everyone.
+- If there is a choice on serialization protocols, it must be implicit or it must be negotiated between peers
+2. URL organization for specific content types. For example the two cases below:
+- Raw Block and Raw Block headers just need their own URL. That URL implicitly provides byte output.
 - Nodes configuration is implicitly JSON
 
-Option `3` is an interesting case that does not exist today.
+Item `3` is an interesting case that does not exist today.
 3. Nodes configuration by URL when multi-serialization protocols are offered
 - For example if there was an option to switch between protobuff and abieos
 - Or if there was an option to configure nodeos with JSON or YAML
 
 For best use, the URL would be organized into groups by primary customer. Each group could be configured to use a specific serialization protocol This may result the following organizational structure
-- config - for block producers
-- eos - for customer facing endpoints like accounts, transactions, etc
-- raw - for L2 applications wanting a raw interface  
+- producers - for block producers
+- transactions or accounts - for customer facing endpoints like accounts, transactions, etc
+- block - for L2 applications wanting a raw interface  
 
 Historical note, in the past it was fairly common to put the protocol serialization as a [`Accept` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). W3C did not officially add protobuffer or any serialization protocol to the official MIME types, and the practice of using `Accept` header stopped. Custom headers also fell out of practice. That left the service side configuration and the remaining practice for configurable serialization. See working example from [Kafka Serialization Part of Message Schema](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-protobuf.html#protobuf-schema-serializer-and-deserializer)
 
@@ -107,7 +107,7 @@ Full URL examples with JSON request
 ### `Recomendation`
 Create endpoints that match usage patterns. This might be the following:  
 - accounts
-- contracts 
+- contracts
 - blocks
 - resources or fees
 - protocol

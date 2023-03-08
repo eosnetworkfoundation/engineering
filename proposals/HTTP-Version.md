@@ -13,15 +13,13 @@
 ### `Problem Statement`
 The HTTP API should be used for the URL organization, standardization of return codes, and standardization for rarely used methods like PATCH.
 
-
 ### `Solution Overview`
 We should settle on HTTP/2.0. We should use standard methods, return codes and headers. We should stay away from grey areas like PATCH.
 
 We need a leading directory name for URL namespace organization.  
 
 ### `Implementation`
-URL namespaces are long lived. We should use the current project iteration of `antelope`
-![#Rec](https://placehold.co/120x25/c5f015/000000/png?text=Recommended) start URLs with project iteration name
+URL namespaces are long lived. We should use the current project iteration of `antelope` to start URLs
 - https://example.com/antelope/transaction
 
 The leading project name in the URL will be changed when a major reorganization of the URL structure occurs, or when the project iteration changes.
@@ -45,7 +43,7 @@ We shift to an RPC style payloads using `method` and `parameters`. The method na
 Blockchains use jsonrpc as for the schema version. Across ETH, AVAX, and NEAR they all use the [jsonrpc spec](https://www.jsonrpc.org/specification).
 
 ### `Implementation`
-![#Rec](https://placehold.co/120x25/c5f015/000000/png?text=Recommended) [jsonrpc](https://www.jsonrpc.org/specification)
+[jsonrpc](https://www.jsonrpc.org/specification)
 
 ## Serialization Version
 
@@ -76,6 +74,45 @@ For best use, the URL would be organized into groups by primary customer. Each g
 - raw - for L2 applications wanting a raw interface  
 
 Historical note, in the past it was fairly common to put the protocol serialization as a [`Accept` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). W3C did not officially add protobuffer or any serialization protocol to the official MIME types, and the practice of using `Accept` header stopped. Custom headers also fell out of practice. That left the service side configuration and the remaining practice for configurable serialization. See working example from [Kafka Serialization Part of Message Schema](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-protobuf.html#protobuf-schema-serializer-and-deserializer)
+
+## Endpoints
+
+### `What Are Endpoints`
+Function calls are placed inside the json metadata, and there is no need for a URL structure. To encourage proper organization of service side functionality, and to group together similar functions it is nice to have specific endpoints. The endpoints should be a set of features or a group of consumers.
+
+### `Layer 7`
+The only reason that requires endpoints is routing or securing URLs by their path. For example if you wanted to restrict `antelope/producer` URLs to originate from a specific IP range you could configure that in an HTTP Proxy.
+
+### `EOS Examples`
+In EOS we currently have the following
+- chain
+- producer
+- net
+- db_size
+- trace
+
+Full URL examples with JSON request
+- http://example.com/antelope/chain
+```
+{
+  "jsonrpc": "2.0",
+  "id": "dontcare",
+  "method": "get_account",
+  "params": {
+    "account_name": "enfsession11",
+  }
+}
+```
+
+### `Recomendation`
+Create endpoints that match usage patterns. This might be the following:  
+- accounts
+- contracts 
+- blocks
+- resources or fees
+- protocol
+- network or peers
+- transactions
 
 ## State Management
 

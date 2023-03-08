@@ -13,6 +13,34 @@
 ### `Problem Statement`
 The HTTP API should be used for the URL organization, standardization of return codes, and standardization for rarely used methods like PATCH.
 
+### `Quick Example`
+Our API is HTTP/2.0, and we would use POST for almost everything. For example
+`get_account` would be a POST to `example.com/antelope/account` with JSON
+```jsonc
+{
+  "jsonrpc": "2.0",
+  "method": "get_account",
+  "params": "enfsession11",
+  "id": "my-memo-or-ref-id"
+}
+```
+
+We don't use DELETE, GET, PATCH, PUT. There a limited uses for HEAD.
+
+Later in this doc we discuss why you might want to have `antelope` or `account` in the URL. Strictly speaking for JSON-RPC 2.0 neither of these are required in the URL.
+
+Here is an example of an error response. 
+```jsonc
+{
+  "error": {
+    "code": -1,
+    "message": "Path not valid - unknown element 'somethingwrong'. Options are [features, trace-options, management, configuration, aaa, authentication, warm-reboot, boot, l2cp-transparency, lacp, lldp, mtu, name, dhcp-server, event-handler, ra-guard-policy, gnmi-server, tls, json-rpc-server, bridge-table, license, dns, ntp, clock, ssh-server, ftp-server, snmp, sflow, load-balancing, banner, information, logging, mirroring, network-instance, maintenance, app-management]"
+  },
+  "id": 0,
+  "jsonrpc": "2.0"
+}
+```
+
 ### `Solution Overview`
 We should settle on HTTP/2.0. We should use standard methods, return codes and headers. We should stay away from grey areas like PATCH.
 

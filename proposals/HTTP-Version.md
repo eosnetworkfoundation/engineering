@@ -54,6 +54,9 @@ The leading project name in the URL will be changed when a major reorganization 
 
 Error codes for unsupported versions are not needed because we are using standard HTTP.
 
+### `Why Not`
+[Discussion on Why Not to Use JSON-RPC 2.0](https://news.ycombinator.com/item?id=34211796)
+
 ## Version Schema
 
 ### `Problem Statement`

@@ -5,10 +5,10 @@ push your changes to this branch, create a pull request with your changes and, w
 merge your changes into the oldest release branch which you want to change.
 
 Then you should create a branch that merges the previous release branch into the next release branch,
-create a pull request and approve it. An do the same for each branch till the `main` branch.
+create a pull request and approve it. And do the same for each branch till the `main` branch.
 
-For example let's say we need to back port changes to project `leap` which has two release branches `release/3.1`
-and `release/3.2` and a `main` branch. Here is what we should do:
+For example let's say we need to back port changes to project `leap` which has two release branches `release/3.1`, 
+`release/3.2` and a `main` branch. Here is what we should do:
 
 - Create a branch with the changes
 
@@ -27,5 +27,5 @@ and `release/3.2` and a `main` branch. Here is what we should do:
 - Create a PR into `main` from that branch
 
   - Once approved, merge into `main`
-  
-  
+
+

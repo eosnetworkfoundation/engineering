@@ -24,7 +24,7 @@ If an issue is not a bug fix or changes for an existing release candidate, e.g. 
 
 ## Assigning milestones to PRs
 
-Pull requests typically should not have milestones attached to them. The only exception is for the PRs that forward bug fixes from a release branch forward to another release branch. In that case, the PR forwarding to a release branch should be assigned a patch milestone corresponding to the version of the target release branch.
+Pull requests typically should not have milestones attached to them. However, one exception to this rule is for the PRs that forward bug fixes from a release branch forward to another release branch. In that case, the PR forwarding to a release branch must be assigned a patch milestone corresponding to the version of the target release branch.
 
 So consider again the scenario described earlier within the `leap` repo where where versions 3.2 and 4.0 of Leap are supported while the `main` branch is tracking work for an upcoming 5.0 release. 
 

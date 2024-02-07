@@ -8,5 +8,5 @@ Cheat sheets, links, procedures, and reference documents related to external too
 - [BASH Limits](./bash-limits.md) - indicators a system implemented in BASH has reached a level of complexity where it would be advantageous to graduate to a "real" language
 - [Computer Setup](./computer-setup.md) - options for keeping your work and personal life separate on your computer
 - [Docker](./docker.md) - docker reference and quick-start guide
-- [Tool Install Guilde](./tool-install-guide.md) - install common tooling on your machine
+- [Tool Install Guide](./tool-install-guide.md) - install common tooling on your machine
 - [Ubuntu Virtual Machine Setup Guide](./vm-setup.md) - setup an Ubuntu virtual machine you can use for testing, and quickly restore to known-good states

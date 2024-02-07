@@ -5,5 +5,5 @@ This repository contains documentation managed by the ENF Engineering team, whic
 > If you are new here, start with the [computer setup guide](./tooling/computer-setup.md), then the [tool install guide](./tooling/tool-install-guide.md).
 
 ### Index
-1. [Process](./process/) - development processes
-1. [Tooling](./tooling/) - cheat sheets, links, procedures, and reference documents related to external tooling we use
+1. [Process](./process/) - development processes.
+1. [Tooling](./tooling/) - cheat sheets, links, procedures, and reference documents related to external tooling we use.

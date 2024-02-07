@@ -7,3 +7,7 @@ This repository contains documentation managed by the ENF Engineering team, whic
 ### Index
 1. [Process](./process/README.md) - systematic methods and standards for development tasks.
 1. [Tooling](./tooling/README.md) - cheat sheets, links, procedures, and reference documents for external tooling.
+
+***
+> **_Legal Notice_**
+> This repo contains assets created in collaboration with a large language model, machine learning algorithm, or weak artificial intelligence (AI). This notice is required in some countries.

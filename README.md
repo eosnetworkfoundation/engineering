@@ -1,8 +1,13 @@
 # Engineering
-This repository contains documentation managed by the ENF Engineering team. The documentation is primary focused on development processes followed by and tooling used by our team, which may be valuable to outside contributors who wish to contribute to the codebases managed by the ENF.
+This repository contains documentation managed by the ENF Engineering team, which may be valuable to outside contributors. This documentation is focused on process, standards, and third-party tooling that is not specific to any particular ENF project, repo, or tool.
 
-If you are new here, start with the [computer setup guide](./tooling/computer-setup.md), then the [tool install guide](./tooling/tool-install-guide.md).
+> [!TIP]
+> If you are new here, start with the [computer setup guide](./tooling/computer-setup.md), then the [tool install guide](./tooling/tool-install-guide.md).
 
 ### Index
-1. [Process](./process/) - development processes
-1. [Tooling](./tooling/) - cheat sheets, links, procedures, and reference documents related to external tooling we use
+1. [Process](./process/README.md) - systematic methods and standards for development tasks.
+1. [Tooling](./tooling/README.md) - cheat sheets, links, procedures, and reference documents for external tooling.
+
+***
+> **_Legal Notice_**
+> This repo contains assets created in collaboration with a large language model, machine learning algorithm, or weak artificial intelligence (AI). This notice is required in some countries.

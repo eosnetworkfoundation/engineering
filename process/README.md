@@ -1,8 +1,11 @@
-# Development process
+# Development Process
+This area contains documents capturing various ENF development processes.
 
-This area contains documents capturing our various development processes at the ENF, including:
-
-* [tracking work in GitHub issues](./work_tracking/);
-* [product versions and git branching strategies](./versioning/);
-* code review process;
-* creating release notes.
+### Index
+1. [Team Discussion](./discussion/README.md)
+1. [Tracking Work](./work_tracking/README.md)
+    1. [Linking PRs to Issues](./work_tracking/linking_prs.md)
+    1. [Milestones](./work_tracking/milestones.md)
+1. [Versioning](./versioning/README.md)
+    1. [Versioning](./versioning/README.md#versioning-guidelines)
+    1. [Branching](./versioning/README.md#code-merge-standards-and-processes)

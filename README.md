@@ -10,5 +10,5 @@ This repository contains documentation managed by the ENF Engineering team, whic
 1. [Tooling](./tooling/README.md) - cheat sheets, links, procedures, and reference documents for external tooling.
 
 ***
-> **_Legal Notice_**
+> **_Legal Notice_**  
 > This repo contains assets created in collaboration with a large language model, machine learning algorithm, or weak artificial intelligence (AI). This notice is required in some countries.

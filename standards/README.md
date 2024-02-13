@@ -3,3 +3,4 @@ Documentation on shared ENF Engineering convention, standards, or requirements t
 
 ### Index
 - [BASH Limits](./bash-limits.md) - indicators a system implemented in BASH has reached a level of complexity where it would be advantageous to graduate to a "real" language.
+- [Secrets](./secrets.md) - what kinds of information are sensitive or secret, and how to handle it.

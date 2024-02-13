@@ -66,5 +66,5 @@ Information may be sensitive because it makes attacks easier, such as a public I
 As an open-source software organization funded by and with obligations to our community, we strive to make as much information publicly available as is reasonable.
 
 ***
-> **_Legal Notice_**
+> **_Legal Notice_**  
 > This information is not legal advice and is not being provided on a professional basis. See the [license](../LICENSE) for terms.

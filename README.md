@@ -5,7 +5,8 @@ This repository contains documentation managed by the ENF Engineering team, whic
 > If you are new here, start with the [computer setup guide](./tooling/computer-setup.md), then the [tool install guide](./tooling/tool-install-guide.md).
 
 ### Index
-1. [Process](./process/README.md) - systematic methods and standards for development tasks.
+1. [Process](./process/README.md) - systematic methods for development tasks.
+1. [Standards](./standards/README.md) - shared convention or requirements.
 1. [Tooling](./tooling/README.md) - cheat sheets, links, procedures, and reference documents for external tooling.
 
 ***

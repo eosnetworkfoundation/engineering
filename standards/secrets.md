@@ -2,7 +2,7 @@
 We are an open-source software organization making as much code and documentation publicly available on the Internet as possible. Like any other organization, we also handle sensitive information and secrets. This document provides guidelines on what should be reserved from public view, and how to safely make this information available internally.
 
 > [!WARNING]
-> The list of examples provided in this document _are **not** exhaustive_!
+> The lists of examples, tools, and means of communication provided in this document _are **not** exhaustive_!
 
 ## Classification
 Information can be classified into three categories.

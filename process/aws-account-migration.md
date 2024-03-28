@@ -139,6 +139,7 @@ There are a few prerequisites to consider before migrating an AWS account.
 The EOS Network Foundation (ENF) will need to do the following.
 1. Determine who will perform the migration, presumably the Automation team.
 1. Grant that user permissions to remove accounts from the organization.
+1. Remove email and SMS notification subscribers, to protect their personal information.
 
 ### EOS Labs
 EOS Labs will need to do the following.

@@ -173,6 +173,11 @@ sequenceDiagram
 ```
 This process must be repeated for each account to be migrated.
 
+The accounts will be migrated in this order:
+1. Migrate a test account (optional).
+1. Migrate `evm-testnet`.
+1. Migrate `evm-mainnet`.
+
 ## See Also
 More resources.
 - [./Development Process](./README.md) ⤴

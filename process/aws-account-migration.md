@@ -190,13 +190,30 @@ Once all accounts have been migrated, stakeholders may wish to do the following.
 1. Create a new [Telegram bot](https://lethanhan.medium.com/making-a-reminder-telegram-bot-with-aws-lambda-and-js-6a7b5d688250) controlled by EOS Labs, and remove the old one.
 
 ## See Also
-More resources.
+Internal resources.
 - [./Development Process](./README.md) ⤴
 - [../Engineering](../README.md) ⤴⤴
 - EOS-EVM Documentation
     - [Cloud Architecture](https://github.com/eosnetworkfoundation/evm-public-docs/blob/main/cloud/README.md)
     - [eos-evm-internal](https://github.com/eosnetworkfoundation/eos-evm-internal) - internal-facing documentation of a [sensitive](https://github.com/eosnetworkfoundation/engineering/blob/main/standards/secrets.md) nature.
     - [Runbooks](https://github.com/eosnetworkfoundation/evm-public-docs/blob/main/runbooks/README.md)
+- Notification System
+    - [aws-cloudwatch-alarm-handler](https://github.com/eosnetworkfoundation/aws-cloudwatch-alarm-handler)
+    - [telegram-bot](https://github.com/eosnetworkfoundation/telegram-bot)
+
+External resources.
+- AWS Documentation
+    - [AWS re:Post guide](https://repost.aws/knowledge-center/organizations-move-accounts) - How do I move an account from an existing AWS Organization to another AWS Organization?
+    - [Blog](https://aws.amazon.com/blogs/mt/aws-organizations-moving-an-organization-member-account-to-another-organization-part-1/) - AWS Organizations, moving an organization member account to another organization: Part 1
+    - [Blog](https://aws.amazon.com/blogs/mt/migrating-accounts-between-aws-organizations-with-consolidated-billing-to-all-features/) - Migrating accounts between AWS Organizations with consolidated billing to all features
+    - [Docs](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/migrate-an-aws-member-account-from-aws-organizations-to-aws-control-tower.html) - Migrate an AWS member account from AWS Organizations to AWS Control Tower
+    - GitHub [aws-account-migration-example](https://github.com/aws-samples/aws-account-migration-example)
+- Medium
+    - [Making a Reminder Telegram bot with AWS Lambda and JS](https://lethanhan.medium.com/making-a-reminder-telegram-bot-with-aws-lambda-and-js-6a7b5d688250)
+    - [Things You Should Consider When Moving AWS Accounts Between AWS Organizations](https://aws.plainenglish.io/things-you-should-consider-when-moving-aws-accounts-between-aws-organizations-45a291715f)
+- Reddit
+    - [How do I 'Take Over' another company's AWS account that we have purchased?](https://old.reddit.com/r/aws/comments/boo8yu/how_do_i_take_over_another_companys_aws_account/)
+    - [Two AWS organizations. What's the best way to move all the resources from one to another?](https://old.reddit.com/r/aws/comments/it5opb/two_aws_organizations_whats_the_best_way_to_move/)
 
 ***
 > **_Legal Notice_**  

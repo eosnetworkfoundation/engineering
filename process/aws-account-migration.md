@@ -17,6 +17,7 @@ The EOS Network Foundation (ENF) Automation team had the foresight to create all
 
 1. [Architecture](#architecture)
 1. [Prerequisites](#prerequisites)
+    1. [ENF](#enf)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -131,6 +132,11 @@ You can see each account is isolated with its own security policy, IAM users, gr
 
 ## Prerequisites
 There are a few prerequisites to consider before migrating an AWS account.
+
+### ENF
+The EOS Network Foundation (ENF) will need to do the following.
+1. Determine who will perform the migration, presumably the Automation team.
+1. Grant that user permissions to remove accounts from the organization.
 
 ## See Also
 More resources.

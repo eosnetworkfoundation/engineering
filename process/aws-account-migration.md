@@ -15,6 +15,7 @@ The EOS Network Foundation (ENF) Automation team had the foresight to create all
 <p/>
 <!-- contents markdown begin -->
 
+1. [Architecture](#architecture)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -23,6 +24,41 @@ The EOS Network Foundation (ENF) Automation team had the foresight to create all
 </tr>
 </table>
 <!-- contents box end -->
+
+## Architecture
+The existing ENF AWS account architecture looks like this.
+```mermaid
+---
+title: AWS Account Architecture
+---
+flowchart LR
+    subgraph enf["`☁️ **ENF AWS**`"]
+        subgraph mgmt["`🏛️ **Management Account**`"]
+            direction LR
+            reports["📊 Cost Reports"]
+            billing["💲 Consolidated Billing"]
+            policy["📜 Organization Policy"]
+            org["🏢 Organization"]
+
+            billing -.-> reports
+            billing -.- org
+            org -.- policy
+        end
+
+        chickens["🐓 chickens-prod Account<br/><br/>Replay Testing"]
+        devhub["📚 devhub Account<br/><br/>Learn Portal"]
+        docs["📑 docs-prod Account<br/><br/>Docs Portal"]
+        mainnet["⛓️ evm-mainnet Account<br/><br/>EVM Mainnet Endpoints"]
+        testnet["🛠️ evm-testnet Account<br/><br/>EVM Testnet Endpoints"]
+    end
+
+    org ===> chickens
+    org ===> devhub
+    org ===> docs
+    org ===> mainnet
+    org ===> testnet
+```
+Each child account is a "member" of the management account's "organization". The organization policy in the management account enforces consolidated billing, and prevents child accounts from leaving the organization.
 
 ## See Also
 More resources.

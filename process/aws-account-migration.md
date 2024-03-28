@@ -16,6 +16,7 @@ The EOS Network Foundation (ENF) Automation team had the foresight to create all
 <!-- contents markdown begin -->
 
 1. [Architecture](#architecture)
+1. [Prerequisites](#prerequisites)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -127,6 +128,9 @@ flowchart TB
     enf ===x |Ownership| evm
 ```
 You can see each account is isolated with its own security policy, IAM users, groups, and resources. DNS is delegated using public DNS infrastructure, not Route53 IAM, so DNS will continue to work during and after a migration.
+
+## Prerequisites
+There are a few prerequisites to consider before migrating an AWS account.
 
 ## See Also
 More resources.

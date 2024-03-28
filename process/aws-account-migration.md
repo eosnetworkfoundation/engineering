@@ -20,6 +20,7 @@ The EOS Network Foundation (ENF) Automation team had the foresight to create all
     1. [ENF](#enf)
     1. [EOS Labs](#eos-labs)
 1. [Process](#process)
+1. [Next Steps](#next-steps)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -179,6 +180,14 @@ The accounts will be migrated in this order:
 1. Migrate a test account (optional).
 1. Migrate `evm-testnet`.
 1. Migrate `evm-mainnet`.
+
+## Next Steps
+Once all accounts have been migrated, stakeholders may wish to do the following.
+1. Remove the credit card used for the migration from child account billing information.
+1. Audit the IAM users with access to the child accounts.
+1. Migrate DNS from `*.evm.eosnetwork.com` to `*.evm.eoslabs.io`.
+1. Add new email and SMS notification subscribers to the child accounts.
+1. Create a new [Telegram bot](https://lethanhan.medium.com/making-a-reminder-telegram-bot-with-aws-lambda-and-js-6a7b5d688250) controlled by EOS Labs, and remove the old one.
 
 ## See Also
 More resources.

@@ -60,6 +60,74 @@ flowchart LR
 ```
 Each child account is a "member" of the management account's "organization". The organization policy in the management account enforces consolidated billing, and prevents child accounts from leaving the organization.
 
+Each EVM account looks like this.
+```mermaid
+---
+title: EVM Account Architecture
+---
+flowchart TB
+    subgraph evm["`🛠️ **evm Account**`"]
+        direction TB
+        subgraph policy["`📜 **Policy**`"]
+            direction TB
+            security["🔒 Security"]
+            iam["📋 IAM"]
+            groups["👥 Groups"]
+            users["👤 Users"]
+
+            security -.- iam
+            iam ---> groups
+            users ---> groups
+        end
+
+        subgraph resources["`🏗️ **Resources**`"]
+            direction LR
+            dns["📑 DNS"]
+            cdn["🌐 CDN"]
+            waf["🔥 WAF"]
+            lb["🔀 Load Balancers"]
+            vm["🖥️ VMs"]
+            db["🛢️ Databases"]
+            metrics["📈 Metrics"]
+            notifications["📲 Notifications"]
+
+            dns -.-> cdn
+            cdn <--> waf
+            waf <--> lb
+            lb <--> vm
+            vm <--> db
+
+            dns -.-> metrics
+            cdn -.-> metrics
+            waf -.-> metrics
+            lb -.-> metrics
+            vm -.-> metrics
+
+            metrics ---> notifications
+        end
+
+        groups ---> resources
+    end
+
+    internet((🌐))
+
+    subgraph org["`**ENF Management Account**`"]
+        enf((🏛️))
+    end
+
+    internet -.-> dns
+    internet <==> cdn
+    internet ~~~ evm
+    internet ~~~ iam
+
+    notifications ---> internet
+
+    enf -.-> |DNS| internet
+    resources ---> |💲 Billing| enf
+    enf ===x |Ownership| evm
+```
+You can see each account is isolated with its own security policy, IAM users, groups, and resources. DNS is delegated using public DNS infrastructure, not Route53 IAM, so DNS will continue to work during and after a migration.
+
 ## See Also
 More resources.
 - [./Development Process](./README.md) ⤴

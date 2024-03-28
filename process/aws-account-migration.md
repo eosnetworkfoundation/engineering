@@ -18,6 +18,7 @@ The EOS Network Foundation (ENF) Automation team had the foresight to create all
 1. [Architecture](#architecture)
 1. [Prerequisites](#prerequisites)
     1. [ENF](#enf)
+    1. [EOS Labs](#eos-labs)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -137,6 +138,15 @@ There are a few prerequisites to consider before migrating an AWS account.
 The EOS Network Foundation (ENF) will need to do the following.
 1. Determine who will perform the migration, presumably the Automation team.
 1. Grant that user permissions to remove accounts from the organization.
+
+### EOS Labs
+EOS Labs will need to do the following.
+1. Create an AWS account to serve as the management account, if they do not already have one.
+    1. Setup billing.
+    1. Create an AWS organization in that account.
+    1. Create an organization policy that prevents child accounts from leaving the organization (optional).
+1. Obtain a credit card to attach to the child accounts during the migration.
+    - AWS requires a credit card to be attached to an account to remove it from an organization.
 
 ## See Also
 More resources.

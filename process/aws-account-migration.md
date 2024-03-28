@@ -131,7 +131,7 @@ flowchart TB
     resources ---> |💲 Billing| enf
     enf ===x |Ownership| evm
 ```
-You can see each account is isolated with its own security policy, IAM users, groups, and resources. DNS is delegated using public DNS infrastructure, not Route53 IAM, so DNS will continue to work during and after a migration.
+You can see each account is isolated with its own security policy, IAM, users, groups, and resources. DNS is delegated using public DNS infrastructure, not Route53 IAM, so DNS will continue to work during and after a migration.
 
 ## Prerequisites
 There are a few prerequisites to consider before migrating an AWS account.
@@ -140,7 +140,7 @@ There are a few prerequisites to consider before migrating an AWS account.
 The EOS Network Foundation (ENF) will need to do the following.
 1. Determine who will perform the migration, presumably the Automation team.
 1. Grant that user permissions to remove accounts from the organization.
-1. Remove email and SMS notification subscribers, to protect their personal information.
+1. Remove email and SMS subscribers from the notification system in the accounts to be migrated, to protect their personal information.
 
 ### EOS Labs
 EOS Labs will need to do the following.
@@ -150,7 +150,9 @@ EOS Labs will need to do the following.
     1. Ensure consolidated billing is on.
     1. Create an organization policy that prevents child accounts from leaving the organization (optional).
 1. Obtain a credit card to attach to the child accounts during the migration.
-    - AWS requires a credit card to be attached to an account to remove it from an organization.
+
+> [!IMPORTANT]
+> > AWS requires a credit card to be attached to an account to remove it from an organization.
 
 ## Process
 Once the prerequisites are met, the migration process will look like this.
@@ -158,7 +160,7 @@ Once the prerequisites are met, the migration process will look like this.
 sequenceDiagram
     actor enf as ENF
     participant enfAWS as ENF<br/>Management<br/>Account
-    participant acct as AWS Account
+    participant acct as AWS<br/>Child<br/>Account
     participant labsAWS as EOS Labs<br/>Management<br/>Account
     actor labs as EOS Labs
 
@@ -187,7 +189,7 @@ Once all accounts have been migrated, stakeholders may wish to do the following.
 1. Audit the IAM users with access to the child accounts.
 1. Migrate DNS from `*.evm.eosnetwork.com` to `*.evm.eoslabs.io`.
 1. Add new email and SMS notification subscribers to the child accounts.
-1. Create a new [Telegram bot](https://lethanhan.medium.com/making-a-reminder-telegram-bot-with-aws-lambda-and-js-6a7b5d688250) controlled by EOS Labs, and remove the old one.
+1. Create a new [Telegram bot](https://lethanhan.medium.com/making-a-reminder-telegram-bot-with-aws-lambda-and-js-6a7b5d688250) controlled by EOS Labs, and remove the old one controlled by the ENF.
 
 ## See Also
 Internal resources.

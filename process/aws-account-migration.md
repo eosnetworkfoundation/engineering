@@ -19,6 +19,7 @@ The EOS Network Foundation (ENF) Automation team had the foresight to create all
 1. [Prerequisites](#prerequisites)
     1. [ENF](#enf)
     1. [EOS Labs](#eos-labs)
+1. [Process](#process)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -147,6 +148,30 @@ EOS Labs will need to do the following.
     1. Create an organization policy that prevents child accounts from leaving the organization (optional).
 1. Obtain a credit card to attach to the child accounts during the migration.
     - AWS requires a credit card to be attached to an account to remove it from an organization.
+
+## Process
+Once the prerequisites are met, the migration process will look like this.
+```mermaid
+sequenceDiagram
+    actor enf as ENF
+    participant enfAWS as ENF<br/>Management<br/>Account
+    participant acct as AWS Account
+    participant labsAWS as EOS Labs<br/>Management<br/>Account
+    actor labs as EOS Labs
+
+    labs -->> enf: Provide Credit Card Info
+    rect rgb(62, 101, 194)
+        enf ->> acct: Add Credit Card to Billing Info
+        acct ->> enfAWS: Remove Account from Organization
+    end
+    note over acct: Orphaned<br/>Account
+    enf -->> labs: Transfer Root User Access
+    rect rgb(253, 1, 193)
+        labsAWS ->> acct: Invite Account to Organization
+        acct ->> labsAWS: Accept Invitation
+    end
+```
+This process must be repeated for each account to be migrated.
 
 ## See Also
 More resources.

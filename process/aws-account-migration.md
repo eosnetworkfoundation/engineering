@@ -193,6 +193,7 @@ Once all accounts have been migrated, stakeholders may wish to do the following.
 Internal resources.
 - [./Development Process](./README.md) ⤴
 - [../Engineering](../README.md) ⤴⤴
+- engineering [issue 84](https://github.com/eosnetworkfoundation/engineering/issues/84) - Organizational Migration of EVM Infrastructure
 - EOS-EVM Documentation
     - [Cloud Architecture](https://github.com/eosnetworkfoundation/evm-public-docs/blob/main/cloud/README.md)
     - [eos-evm-internal](https://github.com/eosnetworkfoundation/eos-evm-internal) - internal-facing documentation of a [sensitive](https://github.com/eosnetworkfoundation/engineering/blob/main/standards/secrets.md) nature.

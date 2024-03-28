@@ -1,6 +1,8 @@
 # AWS Account Migration
 This document outlines the process to migrate an AWS account from one organization to another.
 
+The EOS Network Foundation (ENF) Automation team had the foresight to create all cloud infrastructure in granular Amazon Web Services (AWS) accounts, one for each system or environment, making this process as straightforward as possible!
+
 <!-- contents box begin -->
 <table>
 <tr/>

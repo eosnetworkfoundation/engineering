@@ -2,6 +2,8 @@
 This area contains documents capturing various ENF development processes.
 
 ### Index
+1. Cloud
+    1. [AWS Account Migration](./aws-account-migration.md)
 1. [Team Discussion](./discussion/README.md)
 1. [Tracking Work](./work_tracking/README.md)
     1. [Linking PRs to Issues](./work_tracking/linking_prs.md)

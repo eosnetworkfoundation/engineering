@@ -145,6 +145,7 @@ EOS Labs will need to do the following.
 1. Create an AWS account to serve as the management account, if they do not already have one.
     1. Setup billing.
     1. Create an AWS organization in that account.
+    1. Ensure consolidated billing is on.
     1. Create an organization policy that prevents child accounts from leaving the organization (optional).
 1. Obtain a credit card to attach to the child accounts during the migration.
     - AWS requires a credit card to be attached to an account to remove it from an organization.

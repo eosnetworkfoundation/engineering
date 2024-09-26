@@ -74,6 +74,7 @@ ls -la /mnt/ram
 Internal resources.
 - [./Tooling](./README.md) ⤴
 - [../Engineering](../README.md) ⤴⤴
+- [Encryption](./encryption.md)
 
 ---
 > **_Legal Notice_**  

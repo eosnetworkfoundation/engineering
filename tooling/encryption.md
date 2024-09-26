@@ -16,6 +16,7 @@ Various techniques for securely working with sensitive data on Linux.
 1. [Asymmetric Encryption](#asymmetric-encryption)
     1. [Create a PGP Key Pair](#create-a-pgp-key-pair)
     1. [View Your Key Pair](#view-your-key-pair)
+    1. [Share Your Public Key](#share-your-public-key)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -69,6 +70,16 @@ Before you can send or receive PGP messages, you need to create a key pair. You 
 You can see what key pairs you have on your computer using this command.
 ```bash
 gpg --list-keys
+```
+
+### Share Your Public Key
+You need to share your public key to receive encrypted messages. This command will print it out:
+```bash
+gpg --armor --export someone@example.com
+```
+You can then copy and paste the output into an email or IM, including the `-----BEGIN PGP PUBLIC KEY BLOCK-----` and `-----END PGP PUBLIC KEY BLOCK-----` lines. Alternatively, you can save it to a file and attach that to your message.
+```bash
+gpg --armor --export someone@example.com > public-key.asc
 ```
 
 ## See Also

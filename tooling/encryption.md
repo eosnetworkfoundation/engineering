@@ -18,6 +18,7 @@ Various techniques for securely working with sensitive data on Linux.
     1. [View Your Key Pair](#view-your-key-pair)
     1. [Share Your Public Key](#share-your-public-key)
     1. [Import a Public Key](#import-a-public-key)
+    1. [Encrypt a Message](#encrypt-a-message)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -100,6 +101,25 @@ You will see their name, email, and key here:
 ```bash
 gpg --list-keys
 ```
+
+### Encrypt a Message
+You can encrypt a message using someone's public key. This command will encrypt a file:
+```bash
+gpg --encrypt --recipient someone@example.com message.txt
+```
+This will create a new file in the current directory called `message.txt.gpg` which you can send to the recipient.
+
+You can encrypt any file, such as an archive.
+```bash
+gpg --encrypt --recipient someone@example.com archive.tar.gz
+```
+This would create `archive.tar.gz.gpg`.
+
+You can also encrypt text directly:
+```bash
+echo 'Hello, World!' | gpg --encrypt --armor --recipient someone@example.com
+```
+This will print out the encrypted message, which you can copy and paste into an email or IM.
 
 ## See Also
 Internal resources.

@@ -14,6 +14,7 @@ You can mount some of your computer's memory to your filesystem in order to perf
 <!-- contents markdown begin -->
 
 1. [Preparation](#preparation)
+1. [Creation](#creation)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -42,6 +43,17 @@ Optionally, install `wipe` if you want to delete the contents of your RAM disk i
 sudo apt-get update
 sudo apt-get install -y wipe
 ```
+
+## Creation
+Mount a 16 GB RAM disk.
+```bash
+sudo mount -o size=16G -t tmpfs none /mnt/ram
+```
+Verify your `STOP.txt` file is gone.
+```bash
+ls -la /mnt/ram
+```
+Now you can work there.
 
 ## See Also
 Internal resources.

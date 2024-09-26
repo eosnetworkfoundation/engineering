@@ -120,7 +120,13 @@ This will create a new file in the current directory called `message.txt.gpg` wh
 > ```
 > This will leave the same encrypted `message.txt.gpg` file in the current directory, just without your signature embedded.
 
-You can encrypt any file, such as an archive.
+You can sign and encrypt a message to two or more recipients. Just add them in there!
+```bash
+gpg --encrypt --sign --recipient someone@example.com --recipient someone.else@example.com message.txt
+```
+You will get the same `message.txt.gpg` file in the current directory, but both recipients will be able to decrypt it.
+
+You can encrypt any file, not just text, such as an archive.
 ```bash
 gpg --encrypt --sign --recipient someone@example.com archive.tar.gz
 ```

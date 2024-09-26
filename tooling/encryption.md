@@ -15,6 +15,7 @@ Various techniques for securely working with sensitive data on Linux.
 
 1. [Asymmetric Encryption](#asymmetric-encryption)
     1. [Create a PGP Key Pair](#create-a-pgp-key-pair)
+    1. [View Your Key Pair](#view-your-key-pair)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -63,6 +64,12 @@ Before you can send or receive PGP messages, you need to create a key pair. You 
     gpg --full-generate-key
     ```
     On the last step, be sure to press `o` for "okay" to generate the key pair.
+
+### View Your Key Pair
+You can see what key pairs you have on your computer using this command.
+```bash
+gpg --list-keys
+```
 
 ## See Also
 Internal resources.

@@ -148,6 +148,9 @@ This will print out the message in your terminal.
 ## Symmetric Encryption
 Symmetric encryption uses the same key to encrypt and decrypt data. This is useful for encrypting data at rest, such as a backup file or a database dump.
 
+> [!TIP]
+> For particularly sensitive documents, you may wish to work with them in a [RAMdisk](./ramdisk.md) to avoid writing them to disk at all.
+
 ### Encrypt
 You can compress and encrypt a file using a symmetric key like this:
 ```bash
@@ -172,6 +175,7 @@ You don't have to specify the cipher or digest algorithms, or the compression le
 Internal resources.
 - [./Tooling](./README.md) ⤴
 - [../Engineering](../README.md) ⤴⤴
+- [RAMdisk](./ramdisk.md) - work with files in memory for speed or privacy.
 
 External resources.
 - [Bitwarden](https://bitwarden.com) - password manager

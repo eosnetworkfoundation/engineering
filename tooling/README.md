@@ -10,5 +10,6 @@ Cheat sheets, links, procedures, and reference documents related to external too
 - [Encryption](./encryption.md) - techniques for securely working with sensitive data on Linux.
     - [PGP](./encryption.md#asymmetric-encryption) - securely share secrets.
     - [Symmetric Encryption](./encryption.md#symmetric-encryption) - securely store secrets.
+- [RAMdisk](./ramdisk.md) - work with files in memory for speed or privacy.
 - [Tool Install Guide](./tool-install-guide.md) - install common tooling on your machine.
 - [Ubuntu Virtual Machine Setup Guide](./vm-setup.md) - setup an Ubuntu virtual machine you can use for testing, and quickly restore to known-good states.

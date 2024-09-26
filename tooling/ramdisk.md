@@ -15,6 +15,7 @@ You can mount some of your computer's memory to your filesystem in order to perf
 
 1. [Preparation](#preparation)
 1. [Creation](#creation)
+1. [Destruction](#destruction)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -54,6 +55,20 @@ Verify your `STOP.txt` file is gone.
 ls -la /mnt/ram
 ```
 Now you can work there.
+
+## Destruction
+Optionally, you can overwrite the contents of your RAM disk immediately instead of waiting on your system to do it after unmounting.
+```bash
+wipe -fr /mnt/ram/*
+```
+Unmount the RAM disk.
+```bash
+sudo umount /mnt/ram
+```
+Verify your `STOP.txt` file is back.
+```bash
+ls -la /mnt/ram
+```
 
 ## See Also
 Internal resources.

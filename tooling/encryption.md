@@ -19,6 +19,7 @@ Various techniques for securely working with sensitive data on Linux.
     1. [Share Your Public Key](#share-your-public-key)
     1. [Import a Public Key](#import-a-public-key)
     1. [Encrypt a Message](#encrypt-a-message)
+    1. [Decrypt a Message](#decrypt-a-message)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -120,6 +121,26 @@ You can also encrypt text directly:
 echo 'Hello, World!' | gpg --encrypt --armor --recipient someone@example.com
 ```
 This will print out the encrypted message, which you can copy and paste into an email or IM.
+
+### Decrypt a Message
+If someone sends you a PGP message, you can decrypt it using your private key and passphrase.
+
+To decrypt a file:
+```bash
+gpg --decrypt message.txt.gpg
+```
+Or an archive:
+```bash
+gpg --decrypt archive.tar.gz.gpg
+```
+This will leave the file in the current directory.
+
+To decrypt text directly:
+> When you run this command, it will ask you for your passphrase to decrypt the message...and you will not be able to click outside the dialogue box. So, if you use a password manager, copy your passphrase to your clipboard before running this command.
+```bash
+echo '-----BEGIN PGP MESSAGE-----' | gpg --decrypt
+```
+This will print out the message in your terminal.
 
 ## See Also
 Internal resources.

@@ -173,7 +173,10 @@ Internal resources.
 - [./Tooling](./README.md) ⤴
 - [../Engineering](../README.md) ⤴⤴
 
+External resources.
+- [Bitwarden](https://bitwarden.com) - password manager
+- [GnuPG](https://gnupg.org) - the GNU Privacy Guard encryption, decryption, and signing tool
+
 ---
 > **_Legal Notice_**  
 > This document was created in collaboration with a large language model, machine learning algorithm, or weak artificial intelligence (AI). This notice is required in some countries.
-

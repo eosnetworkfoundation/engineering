@@ -13,6 +13,7 @@ You can mount some of your computer's memory to your filesystem in order to perf
 <p/>
 <!-- contents markdown begin -->
 
+1. [Preparation](#preparation)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -21,6 +22,26 @@ You can mount some of your computer's memory to your filesystem in order to perf
 </tr>
 </table>
 <!-- contents box end -->
+
+## Preparation
+Make a folder to mount the RAM disk to.
+```bash
+sudo mkdir -p /mnt/ram
+```
+Take ownership of that folder.
+```bash
+sudo chown "$USER:$USER" /mnt/ram
+```
+Put a file there so you can tell whether or not a RAM disk is mounted.
+```bash
+echo 'WARNING: If you can see this, there is currently no RAM disk mounted!' > /mnt/ram/STOP.txt
+```
+
+Optionally, install `wipe` if you want to delete the contents of your RAM disk immediately instead of waiting for the system to overwrite it.
+```bash
+sudo apt-get update
+sudo apt-get install -y wipe
+```
 
 ## See Also
 Internal resources.

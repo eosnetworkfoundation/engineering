@@ -125,6 +125,16 @@ echo 'Hello, World!' | gpg --encrypt --armor --recipient someone@example.com
 ```
 This will print out the encrypted message, which you can copy and paste into an email or IM.
 
+You can securely delete your secrets with `shred`...
+```bash
+shred -uvz example.txt
+```
+...or `wipe`...
+```bash
+wipe -fr example-dir
+```
+...if you want. You may need to install them.
+
 ### Decrypt a Message
 If someone sends you a PGP message, you can decrypt it using your private key and passphrase.
 
@@ -163,6 +173,16 @@ You can encrypt an archive like this. We will leave off the compression this tim
 gpg --quiet --symmetric --cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-mode 3 --s2k-count 65011712 example.tar.gz
 ```
 The output file would be `example.tar.gz.gpg`.
+
+You can securely delete your secrets with `shred`...
+```bash
+shred -uvz example.txt
+```
+...or `wipe`...
+```bash
+wipe -fr example-dir
+```
+...if you want. You may need to install them.
 
 ### Decrypt
 Decryption is trivial with `gpg`.

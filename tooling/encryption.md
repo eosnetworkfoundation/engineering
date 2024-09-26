@@ -21,6 +21,7 @@ Various techniques for securely working with sensitive data on Linux.
     1. [Encrypt a Message](#encrypt-a-message)
     1. [Decrypt a Message](#decrypt-a-message)
 1. [Symmetric Encryption](#symmetric-encryption)
+    1. [Encrypt](#encrypt)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -145,6 +146,19 @@ This will print out the message in your terminal.
 
 ## Symmetric Encryption
 Symmetric encryption uses the same key to encrypt and decrypt data. This is useful for encrypting data at rest, such as a backup file or a database dump.
+
+### Encrypt
+You can compress and encrypt a file using a symmetric key like this:
+```bash
+gpg --quiet --symmetric --cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-mode 3 --s2k-count 65011712 --compression bzip2 --bzip2-compress-level 9 example.txt
+```
+This will leave a file called `example.txt.gpg` in the current directory.
+
+You can encrypt an archive like this. We will leave off the compression this time.
+```bash
+gpg --quiet --symmetric --cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-mode 3 --s2k-count 65011712 example.tar.gz
+```
+The output file would be `example.tar.gz.gpg`.
 
 ## See Also
 Internal resources.

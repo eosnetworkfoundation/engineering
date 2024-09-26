@@ -17,6 +17,7 @@ Various techniques for securely working with sensitive data on Linux.
     1. [Create a PGP Key Pair](#create-a-pgp-key-pair)
     1. [View Your Key Pair](#view-your-key-pair)
     1. [Share Your Public Key](#share-your-public-key)
+    1. [Import a Public Key](#import-a-public-key)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -80,6 +81,24 @@ gpg --armor --export someone@example.com
 You can then copy and paste the output into an email or IM, including the `-----BEGIN PGP PUBLIC KEY BLOCK-----` and `-----END PGP PUBLIC KEY BLOCK-----` lines. Alternatively, you can save it to a file and attach that to your message.
 ```bash
 gpg --armor --export someone@example.com > public-key.asc
+```
+
+### Import a Public Key
+If someone sends you their public key, you can import it using this command:
+```bash
+gpg --import public-key.asc
+```
+Or, if you are copying and pasting it from an email or IM, you can do this:
+```bash
+gpg --import <<TXT
+```
+Then paste the key block, and finish with:
+```bash
+TXT
+```
+You will see their name, email, and key here:
+```bash
+gpg --list-keys
 ```
 
 ## See Also

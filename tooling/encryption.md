@@ -20,6 +20,7 @@ Various techniques for securely working with sensitive data on Linux.
     1. [Import a Public Key](#import-a-public-key)
     1. [Encrypt a Message](#encrypt-a-message)
     1. [Decrypt a Message](#decrypt-a-message)
+1. [Symmetric Encryption](#symmetric-encryption)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -141,6 +142,9 @@ To decrypt text directly:
 echo '-----BEGIN PGP MESSAGE-----' | gpg --decrypt
 ```
 This will print out the message in your terminal.
+
+## Symmetric Encryption
+Symmetric encryption uses the same key to encrypt and decrypt data. This is useful for encrypting data at rest, such as a backup file or a database dump.
 
 ## See Also
 Internal resources.

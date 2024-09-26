@@ -8,5 +8,7 @@ Cheat sheets, links, procedures, and reference documents related to external too
 - [Computer Setup](./computer-setup.md) - options for keeping your work and personal life separate on your computer.
 - [Docker](./docker.md) - docker reference and quick-start guide.
 - [Encryption](./encryption.md) - techniques for securely working with sensitive data on Linux.
+    - [PGP](./encryption.md#asymmetric-encryption) - securely share secrets.
+    - [Symmetric Encryption](./encryption.md#symmetric-encryption) - securely store secrets.
 - [Tool Install Guide](./tool-install-guide.md) - install common tooling on your machine.
 - [Ubuntu Virtual Machine Setup Guide](./vm-setup.md) - setup an Ubuntu virtual machine you can use for testing, and quickly restore to known-good states.

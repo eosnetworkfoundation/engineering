@@ -155,18 +155,20 @@ wipe -fr example-dir
 ### Decrypt a Message
 If someone sends you a PGP message, you can decrypt it using your private key and passphrase.
 
-To decrypt a file:
+> [!TIP]
+> When you run any of these commands, it will ask you for your passphrase to decrypt the message...and you will not be able to click outside the dialogue box. So, if you use a password manager, copy your passphrase to your clipboard before pressing `Enter` on any of these commands.
+
+To decrypt a file, you always need to specify the output file unless you want it to print to your terminal.
 ```bash
-gpg --decrypt message.txt.gpg
+gpg --output message.txt --decrypt message.txt.gpg
 ```
-Or an archive:
+Decrypt an archive:
 ```bash
-gpg --decrypt archive.tar.gz.gpg
+gpg --output archive.tar.gz --decrypt archive.tar.gz.gpg
 ```
-This will leave the file in the current directory.
+These will leave the file in the current directory.
 
 To decrypt text directly:
-> When you run this command, it will ask you for your passphrase to decrypt the message...and you will not be able to click outside the dialogue box. So, if you use a password manager, copy your passphrase to your clipboard before running this command.
 ```bash
 echo '-----BEGIN PGP MESSAGE-----' | gpg --decrypt
 ```

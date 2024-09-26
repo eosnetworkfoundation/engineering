@@ -107,17 +107,28 @@ gpg --list-keys
 ```
 
 ### Encrypt a Message
-You can encrypt a message using someone's public key. This command will encrypt a file:
+You can sign and encrypt a message to someone's public key. This command will encrypt a file:
 ```bash
-gpg --encrypt --recipient someone@example.com message.txt
+gpg --encrypt --sign --recipient someone@example.com message.txt
 ```
 This will create a new file in the current directory called `message.txt.gpg` which you can send to the recipient.
 
+> [!TIP]
+> Signing your PGP message enables the recipient to verify that it came from you and was not tampered with. This is good practice, but it is not strictly necessary. Just leave off `--sign` if you don't want to sign the message.
+> ```bash
+> gpg --encrypt --recipient someone@example.com message.txt
+> ```
+> This will leave the same encrypted `message.txt.gpg` file in the current directory, just without your signature embedded.
+
 You can encrypt any file, such as an archive.
 ```bash
-gpg --encrypt --recipient someone@example.com archive.tar.gz
+gpg --encrypt --sign --recipient someone@example.com archive.tar.gz
 ```
-This would create `archive.tar.gz.gpg`.
+This would create `archive.tar.gz.gpg`. You can change the name of the output file if you want.
+```bash
+gpg --encrypt --sign --recipient someone@example.com --output cyphertext.tar.gz.gpg cleartext.tar.gz
+```
+This would create `cyphertext.tar.gz.gpg`.
 
 You can also encrypt text directly:
 ```bash

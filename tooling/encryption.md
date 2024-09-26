@@ -22,6 +22,7 @@ Various techniques for securely working with sensitive data on Linux.
     1. [Decrypt a Message](#decrypt-a-message)
 1. [Symmetric Encryption](#symmetric-encryption)
     1. [Encrypt](#encrypt)
+    1. [Decrypt](#decrypt)
 1. [See Also](#see-also)
 
 <!-- contents markdown end -->
@@ -159,6 +160,13 @@ You can encrypt an archive like this. We will leave off the compression this tim
 gpg --quiet --symmetric --cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-mode 3 --s2k-count 65011712 example.tar.gz
 ```
 The output file would be `example.tar.gz.gpg`.
+
+### Decrypt
+Decryption is trivial with `gpg`.
+```bash
+gpg --output example.tar.gz --decrypt example.tar.gz.gpg
+```
+You don't have to specify the cipher or digest algorithms, or the compression level, because `gpg` will figure that out from the encrypted file.
 
 ## See Also
 Internal resources.

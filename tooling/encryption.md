@@ -142,7 +142,7 @@ echo 'Hello, World!' | gpg --encrypt --armor --recipient someone@example.com
 ```
 This will print out the encrypted message, which you can copy and paste into an email or IM.
 
-You can securely delete your secrets with `shred`...
+When you are done, you can securely delete your secrets with `shred`...
 ```bash
 shred -uvz example.txt
 ```
@@ -193,7 +193,7 @@ gpg --quiet --symmetric --cipher-algo AES256 --s2k-digest-algo SHA512 --s2k-mode
 ```
 The output file would be `example.tar.gz.gpg`.
 
-You can securely delete your secrets with `shred`...
+When you are done, you can securely delete your secrets with `shred`...
 ```bash
 shred -uvz example.txt
 ```
